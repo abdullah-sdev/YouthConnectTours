@@ -194,7 +194,7 @@
 
 
 <x-layout>
-    <x-slot name="title">Home</x-slot>
+    {{-- <x-slot name="title">Home</x-slot> --}}
     <x-slot name="styles">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -278,7 +278,7 @@
                        </div>
                        <div class="spec-data">
                            <h3>Available Dates</h3>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam iste consequuntur cum id
+                           <p>{{ $tour }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam iste consequuntur cum id
                                cupiditate deleniti autem eius ex nemo quas eligendi doloribus placeat reprehenderit
                                repudiandae temporibus ipsum mollitia magnam distinctio, nihil ut hic non. Cumque sed
                                maiores laboriosam totam quo.</p>

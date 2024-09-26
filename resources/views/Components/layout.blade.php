@@ -10,27 +10,27 @@
     @isset($styles)
         {{ $styles }}
     @endisset
-     
+
 </head>
 
 <body>
     <main>
         <x-nav.nav>
             {{-- <x-nav-link href="{{ route('home') }}">Home</x-nav-link> --}}
-            <x-nav.nav-link href="{{ route('home') }}">Vaccations</x-nav.nav-link>  
-            <x-nav.nav-link href="{{ route('tour') }}">Destination</x-nav.nav-link>  
-            <x-nav.nav-link href="{{ route('tour') }}">Activation</x-nav.nav-link>  
-            <x-nav.nav-link href="{{ route('tour') }}">Transportation</x-nav.nav-link>  
-            <x-nav.nav-link href="{{ route('tour') }}">Saughat</x-nav.nav-link>  
-            
+            <x-nav.nav-link href="{{ route('home') }}">Vaccations</x-nav.nav-link>
+            <x-nav.nav-link href="{{ route('tour.detail', ['tour' => 'Skardu']) }}">Destination</x-nav.nav-link>
+            <x-nav.nav-link href="{{ route('tour.detail', ['tour' => 'Naran']) }}">Activation</x-nav.nav-link>
+            <x-nav.nav-link href="{{ route('tour.detail',  ['tour' => 'Nathiagali']) }}">Transportation</x-nav.nav-link>
+            <x-nav.nav-link href="{{ route('tour.detail', ['tour' => 'Kathmandu']) }}">Saughat</x-nav.nav-link>
+
         </x-nav.nav>
-      
 
-{{ $slot }}
 
-        
+        {{ $slot }}
 
-       
+
+
+
 
         <footer class="container">
             <div>
