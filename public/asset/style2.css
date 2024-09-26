@@ -1,0 +1,591 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+body {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* background-color:; */
+    background-color: #45454510;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  /* color: var(--dark-navy-blue); */
+}
+p{
+    text-align: justify;
+}
+/* Start Theme */
+/* Nav */
+nav{
+
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 1rem 2rem; */
+  position:fixed;
+  z-index: 1000;
+  width: 100vw;
+  /* background-color: #fff; */
+}
+nav ul{
+  background-color: rgb(255, 68, 0);
+  display: flex;
+  justify-content:flex-end;
+  align-items: end;
+}
+nav ul li
+{
+  list-style: none;
+  /* margin-left: 1rem; */
+  
+
+}
+nav ul li a{
+  text-decoration: none;
+  color: #fff;
+  /* font-size: 20px; */
+  font-size: .9rem;
+  padding: .6rem 1.5rem;
+  display: block;
+  /* transition: 0.3s;  */
+  font-weight: 100;
+}
+nav ul li a:hover{
+    background-color: #3c3c3c;
+    animation: linkhover .3s forwards;
+}
+@keyframes linkhover {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(-5px);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translateY(-5px);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Header */
+header {
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* background-image: url("https://travelandtours.pk/wp-content/uploads/2019/01/neelum-valley.jpg"); */
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://travelandtours.pk/wp-content/uploads/2019/01/neelum-valley.jpg"); */
+    
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #fff;
+  font-size: 40px;
+  
+}
+
+.container {
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container .head{
+    text-align: center;
+}
+.container .head p{
+    text-align: center;
+}
+.container .head a{
+    text-align: center;
+    text-decoration: none;
+    color: #fe7200;
+    /* transition: all .3s; */
+}
+.container .head a:hover{
+    text-align: center;
+    text-decoration:underline;
+    
+}
+.offerandtours{
+
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+.offerandtours .tours{
+   width: 100%;
+
+}
+.offerandtours .tours .tour{
+    display: flex;
+    flex-direction: row;
+align-items: center;
+    gap: 1rem;
+    padding: .5rem;
+    background-color: #fff;
+    border-bottom: 1px solid #3c3c3c58;
+    transition: all .1s;
+    border-radius: 4px;
+}
+.offerandtours .tours .tour:hover{
+    background-color: #3c3c3c50;
+}
+.offerandtours .tours .tour .img img
+{
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    /* background-size: contain; */
+    background-repeat: no-repeat;
+    object-fit: cover;
+    border-radius: 16px;
+}
+.offerandtours .tours .tour .txt span{
+    color: #5f5f5f;
+    font-style: italic;
+    font-size: .8rem;
+}
+.offerandtours .offers{
+    padding: .3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.offerandtours .offers .offer{
+    height: 300px;
+    padding: 1rem;
+    width: 250px;
+    background-color: #3c3c3c94;
+    color: #fff;
+    display: grid;
+    align-items: end;
+}
+
+.offerandtours button{
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #fe7200;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.offerandtours button:hover{
+    background-color: #454545;
+}
+@media (max-width: 768px) {
+    .offerandtours{
+        flex-direction: column;
+    }
+    .offerandtours .tours{
+        width: 100%;
+    }
+    .offerandtours .offers{
+        width: 100%;
+    }
+
+}
+
+
+.getaways{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);  
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.getaways .getaway{
+    background-color: #14141453;
+    grid-column: span 4;
+    color: white;
+    padding: 1rem;
+    height: 300px;
+    display: grid;
+    align-items: end;
+    box-shadow: 2px 2px 5px 1px #3c3c3c;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+.getaways .getaway .article-img-holder{
+    position:absolute;
+    z-index: -100;
+    width: 100%;
+    height: 100%;
+    /* background-image: url(https://awik.io/demo/background-image-zoom/traffic2.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 100%;
+    transition: all 0.3s;
+}
+.getaways .getaway:hover .article-img-holder {
+    transform: scale(1.2);
+}
+.getaways button{
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #fe7200;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.getaways button:hover{
+    background-color: #454545;
+}
+
+.fleets{
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+    /* background-color: #45454510; */
+
+    padding: 1rem;
+    border-radius: 8px;
+}
+.fleets .fleet{
+    background-color: #ffffff;
+    padding: 1rem;
+    box-shadow: 2px 5px 10px 0px #3c3c3c3b;
+    display: grid;
+    /* border-radius: 8px; */
+    transition: .3s;
+}
+.fleets .fleet:hover{
+    /* background-color: #feb350; */
+}
+.fleets .fleet .vehicle p{
+    font-size: 18px;
+    color: #3b3b3bc3;
+}
+.fleets .fleet .price p span{
+    font-weight: 100;
+} 
+.fleets .fleet .price p{
+    font-weight: 700;
+} 
+.fleets .fleet .specs{
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+    border-top: 1px solid #3c3c3c58;
+    border-bottom: 1px solid #3c3c3c58;
+}
+.fleets button{
+    margin-top: 1rem;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #fe7200;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.fleets button:hover{
+    background-color: #454545;
+}
+
+.advertisement {
+    display: flex;
+    justify-content:center;
+    /* align-items: center;
+    align-self: center; */
+    /* max-width: 800px; */
+    
+}
+.advertisement .left{
+    padding: 2rem;
+    /* padding: 2rem; */
+}
+.advertisement .left .txt{
+    padding: 1rem;
+    background-color: #3c3c3c;
+    color: #fff;
+    font-size: 2rem;
+    text-wrap: wrap;
+    /* padding: 2rem; */
+}
+
+.advertisement .right{
+    padding: 2rem;
+    width: 100%;
+
+}
+
+.advertisement .right h2{
+    font-size: 4rem;
+}
+.advertisement .right p{
+    font-size:.8rem;
+    padding: 2rem;
+}
+.advertisement .right p span{
+    color: #fe7200;
+    font-weight: 900;
+}
+.advertisement .right a{
+    padding: 1rem 2rem;
+    border: none;
+    text-decoration: none;
+    border-radius: 2rem;
+    background-color: #202020;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    /* display: block; */
+    
+}
+.advertisement .right a:hover{
+    background-color: #fe7200;
+}
+@media (max-width: 768px) {
+    .advertisement {
+        flex-direction: column;
+    }
+    .advertisement .left {
+        width: 100%;
+    }
+    .advertisement .right {
+        width: 100%;
+    }
+}
+
+.designedplans {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+    /* background-color: #45454510; */
+
+    padding: 1rem;
+    border-radius: 8px;
+}
+.designedplans .designplan{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    display: grid;
+    place-items: end normal;
+    /* text-align: center; */
+}
+.designedplans .designplan h3{
+    text-align: center;
+    padding: 1rem;
+    color: #fff;
+    background-color: #202020;
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: inline-block;
+
+
+}
+.designedplans .designplan h3 a{
+    text-align: center;
+    padding: 1rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+footer.container{
+    padding: 0rem 5rem; 
+}
+footer {
+    background-color: #3c3c3c;
+    color: #fff;
+    font-size: .8rem;
+    
+
+    display: flex;
+    flex-direction: row;
+
+}
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+footer a{
+    text-decoration: none;
+    color: #fe7200;
+    /* font-weight: 600; */
+    transition: 0.3s;
+}
+footer a:hover{
+    text-decoration:underline;
+    color: #fff;
+}
+footer div{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+}
+footer div div{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Blog Template */
+.blog-template {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.blog-template .section1{
+    grid-column: span 9;
+
+}
+
+.blog-template .section1 .slider-blog{}
+
+.blog-template .section1 .specs{
+    /* background-color: #09080837; */
+}
+.blog-template .section1 .specs{
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.blog-template .section1 .specs .specs-header{
+
+
+}
+
+.blog-template .section1 .specs .specs-header ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.blog-template .section1 .specs .specs-header ul li{
+    padding: .5rem 1rem;
+    cursor: pointer;
+    transition: 0.3s; 
+    margin-left: 4px;
+    margin-top: 4px;
+    background-color: #212121;
+    color: #fff;
+    border-left: 4px solid #fff;
+    border-radius: 4px;
+}
+.blog-template .section1 .specs .specs-header ul li.active,
+.blog-template .section1 .specs .specs-header ul li:hover{
+    background-color: #fe7200;
+    color: #fff;
+}
+
+.blog-template .section1 .specs .spec-data{}
+
+.blog-template .section2{
+    grid-column: span 3;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.blog-template .section2 .section2-card{
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+
+}
+.blog-template .section2 .section2-card p{
+    font-size: .9rem;
+    color: #212121;
+    /* font-style: italic; */
+}
+.blog-template .section2 .section2-card p.sub-heading{
+    font-size: .8rem;
+    color: #212121bd;
+    font-style: italic;
+}
+.blog-template .section2 .section2-card span.tag{
+    background-color: #b5b2b2;
+    color: #000000;
+    font-weight: 600;
+    border-radius: 16px 4px 4px 16px ;
+    text-transform: capitalize;
+    font-size: .7rem;
+    display: inline-block;
+    padding: .3rem;
+    padding-left: 1rem;
+    margin: .2rem;
+    cursor: pointer;
+}
+.blog-template .section2 .section2-card a{
+    text-decoration: none;
+    background-color: #fe7200;
+    color: #fff;
+    font-weight: 600;
+    transition: 0.3s;
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    font-size: .8rem;
+    margin-top: 1rem;
+    display: inline-block;
+    text-align: center;
+
+}
+.blog-template .section2 .section2-card a:hover{
+    /* text-decoration: underline; */
+    background-color: #212121;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Swiper */
+.swiper {
+    width: 600px;
+    height: 300px;
+  }
