@@ -18,11 +18,10 @@
         <x-nav.nav>
             {{-- <x-nav-link href="{{ route('home') }}">Home</x-nav-link> --}}
             <x-nav.nav-link href="{{ route('home') }}">Vaccations</x-nav.nav-link>
-            <x-nav.nav-link href="{{ route('tour.detail', ['tour' => 'Skardu']) }}">Destination</x-nav.nav-link>
-            <x-nav.nav-link href="{{ route('tour.detail', ['tour' => 'Naran']) }}">Activation</x-nav.nav-link>
-            <x-nav.nav-link href="{{ route('tour.detail',  ['tour' => 'Nathiagali']) }}">Transportation</x-nav.nav-link>
-            <x-nav.nav-link href="{{ route('tour.detail', ['tour' => 'Kathmandu']) }}">Saughat</x-nav.nav-link>
-
+            <x-nav.nav-link href="{{ route('tour.show', ['tour' => 'Skardu']) }}">Destination</x-nav.nav-link>
+            <x-nav.nav-link href="{{ route('tour.show', ['tour' => 'Naran']) }}">Activation</x-nav.nav-link>
+            <x-nav.nav-link href="{{ route('tour.show',  ['tour' => 'Nathiagali']) }}">Transportation</x-nav.nav-link>
+            <x-nav.nav-link href="{{ route('tour.show', ['tour' => 'Kathmandu']) }}">Saughat</x-nav.nav-link>
         </x-nav.nav>
 
 
