@@ -10,6 +10,7 @@
      
      
     </div>
+    @if (isset($popular))
     <div class="offers">
         <h2>Popular</h2>
         
@@ -17,4 +18,5 @@
 
        
     </div>
+    @endif
 </div>
