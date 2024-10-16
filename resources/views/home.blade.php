@@ -1,6 +1,5 @@
 <x-layout>
-    <header
-        class="bg-cover bg-no-repeat bg-fixed h-[80vh] text-center text-white text-1.7xl"
+    <header         class="bg-cover bg-no-repeat bg-fixed h-[80vh] text-center text-white text-1.7xl"
         style="background-image: linear-gradient(rgba(0, 0, 0, 0.408), rgba(0, 0, 0, 0.743)),url('{{ asset('asset/images/youth-connect-tours.jpg') }}');">
         <div class="text">
             <h2 class="text-3xl font-bold">Youth Connect Tours</h2>
@@ -499,6 +498,30 @@
 
             function prevStep(currentStep) {
                 document.getElementById(`step${currentStep}`).style.display = 'none';
+                document.getElementById(`step${currentStep - 1}`).style.display = 'block';
+            }
+
+            document.getElementById('travelForm').addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent form submission for demo purposes
+                alert("Form submitted!");
+                document.getElementById('travelDialog').close();
+            });
+        </script>
+
+    </x-container>
+ementById(`step${currentStep}`).style.display = 'none';
+                document.getElementById(`step${currentStep - 1}`).style.display = 'block';
+            }
+
+            document.getElementById('travelForm').addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent form submission for demo purposes
+                alert("Form submitted!");
+                document.getElementById('travelDialog').close();
+            });
+        </script>
+
+    </x-container>
+lementById(`step${currentStep}`).style.display = 'none';
                 document.getElementById(`step${currentStep - 1}`).style.display = 'block';
             }
 
