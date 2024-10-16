@@ -1,5 +1,6 @@
 <x-layout>
     <header
+        class="bg-cover bg-no-repeat bg-fixed h-[80vh] text-center text-white text-1.7xl"
         style="background-image: linear-gradient(rgba(0, 0, 0, 0.408), rgba(0, 0, 0, 0.743)),url('{{ asset('asset/images/youth-connect-tours.jpg') }}');">
         <div class="text">
             <h2 class="text-3xl font-bold">Youth Connect Tours</h2>
