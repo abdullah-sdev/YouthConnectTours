@@ -49,7 +49,7 @@ Route::get('logout', [UserController::class, 'logout'])->name('logout');
 // Route::get('dashboard', [UserController::class, 'dashboardPage'])->name('dashboard');
 // Route::get('dashboard/inner', [UserController::class, 'innerPage'])->name('inner');
 
-Route::middleware(['adminAuth'])->prefix('dashboard')->name('dashboard.')->group(function () {
+Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
 
     Route::get('tour/create', [TourController::class, 'create'])->name('tour.create');

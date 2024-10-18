@@ -66,7 +66,7 @@ class TourController extends Controller
             // 'image' => $imageName,
         ];
 
-        return redirect()->route('adminsa.tour.create')->with('success', 'Tour created successfully.');
+        return redirect()->route('dashboard.tour.create')->with('success', 'Tour created successfully.');
 
     }
 }

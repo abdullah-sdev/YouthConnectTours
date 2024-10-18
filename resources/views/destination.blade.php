@@ -27,7 +27,7 @@
                         <h3 class="text-2xl">{{ $destination->name }}</h3>
                         <p class="text-lg">{{ $destination->ideal_time_to_visit }}</p>
                         <p class="text-lg">{{ $destination->ideal_time_period }} Days</p>
-                        <a class="btn mt-4 group-hover:text-white" href="{{ route('adminsa.destination.show', $destination->id) }}">Book Now</a>
+                        <a class="btn mt-4 group-hover:text-white" href="{{ route('dashboard.destination.show', $destination->id) }}">Book Now</a>
                     </div>
                 </x-cards.card-3> --}}
 

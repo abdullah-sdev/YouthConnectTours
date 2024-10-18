@@ -9,7 +9,7 @@
         </div>
         <div class="card mb-4">
             <div class="card-body">
-                <a href="{{ route('adminsa.destination.create') }}" class="btn btn-primary mb-4">Create New Destination +</a>
+                <a href="{{ route('dashboard.destination.create') }}" class="btn btn-primary mb-4">Create New Destination +</a>
                 <div class="row">
                     @forelse ($destinations as $destination)
                         <div class="col-md-6 col-lg-4 mb-4">
@@ -18,7 +18,7 @@
                                     <h5 class="card-title fw-semibold mb-3">{{ $destination->name }}</h5>
                                     <p class="card-text mb-2"><b>ideal_time_period:</b>{{ $destination->ideal_time_period ?? '' }}</p>
                                     <p class="card-text mb-2"><b>ideal_time_to_visit:</b>{{ $destination->ideal_time_to_visit ?? '' }}</p>
-                                    <a href="{{ route('adminsa.destination.show', $destination->id) }}" class="btn btn-primary btn-sm">Show Attractions</a>
+                                    <a href="{{ route('dashboard.destination.show', $destination->id) }}" class="btn btn-primary btn-sm">Show Attractions</a>
                                 </div>
                             </div>
                         </div>

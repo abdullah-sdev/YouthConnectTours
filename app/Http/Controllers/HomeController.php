@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TourBBooking;
 use App\Models\Attraction;
 use App\Models\Destination;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -92,7 +94,20 @@ class HomeController extends Controller
             // Handle final submission, combine all data
             $finalData = array_merge(session('step1_data'), session('step2_data'), $request->all());
             // Handle final submission (e.g., save data)
-            return redirect()->route('thank.you'); // Example route after submission
+
+            Mail::to('info@youthconnecttours.com')->send(new TourBBooking(
+                session('step1_data')['name'],
+                session('step1_data')['email'],
+                session('step1_data')['whatsapp'],
+                session('step2_data')['start'],
+                collect(session('step2_data')['states'])->map(function ($state) {
+                    return Destination::findOrFail($state)->name;
+                })->implode(', '),
+                collect(session('step2_data')['attractions'])->map(function ($attraction) {
+                    return Attraction::findOrFail($attraction)->name;
+                })->implode(', ')
+            ));
+            return redirect()->route('home'); // Example route after submission
         }
     
         // Return back to the form with old input and updated step 
