@@ -199,7 +199,10 @@
       <div class="container-fluid">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4">Sample Page</h5>
+            @if (auth()->check())
+            <span class="hide-menu"></span>
+            <h5 class="card-title fw-semibold mb-4">{{ auth()->user()->name }}</h5>
+          @endif
             <p class="mb-0">This is a sample page </p>
           </div>
         </div>

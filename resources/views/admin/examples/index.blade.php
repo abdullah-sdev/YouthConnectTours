@@ -165,7 +165,7 @@
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
               <a href="#" target="_blank"
                 class="btn btn-primary me-2"><span class="d-none d-md-block">Check Pro Version</span> <span class="d-block d-md-none">Pro</span></a>
-              <a href="#" target="_blank"
+              <a href="{{ route('inner') }}"
                 class="btn btn-success"><span class="d-none d-md-block">Download Free </span> <span class="d-block d-md-none">Free</span></a>
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
@@ -186,7 +186,7 @@
                       <i class="ti ti-list-check fs-6"></i>
                       <p class="mb-0 fs-3">My Task</p>
                     </a>
-                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    <a href="{{ route('logout') }}" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
               </li>
@@ -196,6 +196,19 @@
       </header>
       <!--  Header End -->
       <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title d-flex align-items-center gap-2 mb-4">
+                            Hi {{ Auth::user()->name }}
+                            {{-- <span>
+                                <iconify-icon icon="solar:question-circle-bold" class="fs-7 d-flex text-muted" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-success" data-bs-title="Traffic Overview"></iconify-icon>
+                            </span> --}}
+                        </h5>
+                    </div>
+                </div>
+            </div>
         <div class="row">
             <div class="col-lg-8">
                 <div class="card">

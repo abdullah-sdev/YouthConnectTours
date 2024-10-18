@@ -31,7 +31,7 @@
             </p>
         <img src="{{ asset('uploads/'. str_replace('http://localhost/travelandtours_new/public/', '', $attraction->display_picture)) }}" alt="xx" height="200px">
 
-<a href="{{ route('adminsa.destination.attraction.edit', ['destination' => $attraction->destination_id, 'attraction' => $attraction->id]) }}" class="btn btn-primary">Edit</a>
+<a href="{{ route('dashboard.destination.attraction.edit', ['destination' => $attraction->destination_id, 'attraction' => $attraction->id]) }}" class="btn btn-primary">Edit</a>
             {{-- <img src="{{ asset('storage/' . $attraction->display_picture) }}" alt="" class="img-thumbnail" style="max-width: 300px; max-height: 300px;"> --}}
             
         </div>

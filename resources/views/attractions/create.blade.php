@@ -18,7 +18,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="{{ route('adminsa.destination.attraction.store', ['destination' => $destination->id]) }}" method="POST" enctype="multipart/form-data"
+                        <form action="{{ route('dashboard.destination.attraction.store', ['destination' => $destination->id]) }}" method="POST" enctype="multipart/form-data"
                             class="container mt-4">
                             @csrf
 

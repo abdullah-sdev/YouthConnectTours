@@ -69,7 +69,7 @@
                         </h5>
                         {{-- <p class="text-sm">Saturdays</p>
                         <p class="text-sm">15 minutes</p> --}}
-                        <a href="{{ route('tour.make') }}"
+                        <a href="{{ route('book-a-tour') }}"
                             class="btn mt-3 px-4 py-2 text-sm font-semibold rounded-full bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545]">Book
                             Now</a>
                     </div>
@@ -79,7 +79,7 @@
                     <div
                         class="txt flex flex-col items-center justify-center text-center bg-opacity-50 bg-orange-500 p-3 rounded-md text-slate-00">
                         <h5 class="text-2xl font-bold">Theme Parks For Family</h5>
-                        <a href="{{ route('tour.make') }}"
+                        <a href="{{ route('book-a-tour') }}"
                             class="btn mt-3 px-4 py-2 text-sm font-semibold rounded-full bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545]">Book
                             Now</a>
                     </div>

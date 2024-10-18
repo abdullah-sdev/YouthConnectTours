@@ -19,7 +19,7 @@
                             </div>
                         @endif
                         <form
-                            <form action="{{ route('adminsa.destination.attraction.update', ['destination' => $destination->id, 'attraction' => $attraction->id]) }}"
+                            <form action="{{ route('dashboard.destination.attraction.update', ['destination' => $destination->id, 'attraction' => $attraction->id]) }}"
                             method="POST" enctype="multipart/form-data" class="container mt-4">
                             @csrf
                             @method('PUT')

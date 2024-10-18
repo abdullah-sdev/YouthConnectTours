@@ -34,7 +34,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ route('adminsa.index') }}" aria-expanded="false">
+              <a class="sidebar-link" href="{{ route('dashboard.index') }}" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
                 </span>
@@ -42,7 +42,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ route('adminsa.destination.index') }}" aria-expanded="false">
+              <a class="sidebar-link" href="{{ route('dashboard.destination.index') }}" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
                 </span>
@@ -50,7 +50,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ route('adminsa.tags.index') }}" aria-expanded="false">
+              <a class="sidebar-link" href="{{ route('dashboard.tags.index') }}" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
                 </span>
@@ -120,7 +120,7 @@
                       <i class="ti ti-list-check fs-6"></i>
                       <p class="mb-0 fs-3">My Task</p>
                     </a>
-                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    <a href="{{ route('logout') }}" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
               </li>
