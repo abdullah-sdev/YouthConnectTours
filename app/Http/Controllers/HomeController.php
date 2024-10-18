@@ -52,6 +52,7 @@ class HomeController extends Controller
     public function makeATour(Request $request)
     {
         $states = Destination::all();
+        $attractions = Attraction::all();
 
         $previousStep = $request->old('currentStep') ?: 0;
         $currentStep = $previousStep + 1;
@@ -59,7 +60,7 @@ class HomeController extends Controller
             $currentStep = $previousStep;
         }
 
-        return view('make-a-tour', compact('states', 'currentStep'));
+        return view('make-a-tour', compact('states', 'currentStep', 'attractions'));
     }
 
     public function requestTour(Request $request)
@@ -67,12 +68,7 @@ class HomeController extends Controller
         // Fetch all states again if necessary 
         $states = Destination::all();
         $currentStep = $request->input('currentStep', 1);
-
-        // echo '<pre>';
-        // print_r($request->all());
-        // echo '</pre>';
-        // die();
-
+    
         // Validation based on current step 
         if ($currentStep == 1) {
             $validatedData = $request->validate([
@@ -85,8 +81,10 @@ class HomeController extends Controller
         } elseif ($currentStep == 2) {
             $validatedData = $request->validate([
                 'start' => 'required|date',
-                'state' => 'required|integer|exists:destinations,id',
-                'attractions' => 'array',
+                'states' => 'required|array|min:1', // Ensure at least one state is selected
+                'states.*' => 'integer|exists:destinations,id', // Validate each selected state
+                'attractions' => 'required|array|min:1', // Ensure at least one attraction is selected
+                'attractions.*' => 'integer|exists:attractions,id', // Validate each selected attraction
             ]);
             // Store step 2 data in session
             session(['step2_data' => $validatedData]);
@@ -96,8 +94,9 @@ class HomeController extends Controller
             // Handle final submission (e.g., save data)
             return redirect()->route('thank.you'); // Example route after submission
         }
-
+    
         // Return back to the form with old input and updated step 
         return back()->withInput()->with(compact('states', 'currentStep'));
     }
+    
 }

@@ -28,7 +28,7 @@ Route::post('make-a-tour', [HomeController::class, 'requestTour'])->name('tour.r
 // Route::post('/travel/submit', [HomeController::class, 'submit'])->name('makeatour.submit');
 
 Route::get('/api/attractions/{destination}', function ($destination) {
-    return Attraction::where('destination_id', $destination)->get();
+    return Attraction::select('id', 'name')->where('destination_id', $destination)->get()->toArray();
 });
 
 

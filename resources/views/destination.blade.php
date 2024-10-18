@@ -19,15 +19,29 @@
 
         <div class="getaways grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-2">
             @forelse ($destinations as $destination)
-                <x-cards.card-3
-                    img="https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg">
-                    <div class="txt">
-                        <h3>{{ $destination->name }}</h3>
-                        <p>{{ $destination->ideal_time_to_visit }}</p>
-                        <p>{{ $destination->ideal_time_period }} Days</p>
-                        <a class="btn">Book Now</a>
+                {{-- <x-cards.card-3
+                    img="{{ $destination->image ? asset('uploads/' . $destination->image) : 'https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg' }}"
+                    class="group relative hover:shadow-md hover:scale-105 transition duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-75 transition duration-300"></div>
+                    <div class="txt absolute inset-0 flex flex-col justify-center items-center text-white">
+                        <h3 class="text-2xl">{{ $destination->name }}</h3>
+                        <p class="text-lg">{{ $destination->ideal_time_to_visit }}</p>
+                        <p class="text-lg">{{ $destination->ideal_time_period }} Days</p>
+                        <a class="btn mt-4 group-hover:text-white" href="{{ route('adminsa.destination.show', $destination->id) }}">Book Now</a>
                     </div>
-                </x-cards.card-3>
+                </x-cards.card-3> --}}
+
+                <x-cards.card-3
+                class="group relative bg-gray-800 hover:shadow-md hover:scale-105 transition duration-300"
+                img="{{ $destination->image ? asset('uploads/' . $destination->image) : 'https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg' }}">
+                <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-75 transition duration-300"></div>
+                <div class="txt absolute inset-0 flex flex-col justify-center items-center text-white">
+                    <h3 class="text-2xl font-bold">{{ $destination->name }}</h3>
+                    <p class="text-lg">{{ $destination->ideal_time_to_visit }}</p>
+                    <p class="text-lg">{{ $destination->ideal_time_period }} Days</p>
+                    <a href="{{ route('adminsa.destination.show', $destination->id) }}" class="btn mt-4 group-hover:text-white bg-orange-500 hover:bg-orange-700 py-2 px-3 rounded-md">Book Now</a>
+                </div>
+            </x-cards.card-3>
             @empty
                 Coming Soon!
             @endforelse

@@ -18,6 +18,7 @@
             @csrf
             <h2 class="text-2xl font-bold border-b border-gray-300 pb-2">Make a Tour</h2>
             <input type="hidden" name="currentStep" value="{{ $currentStep }}">
+
             <!-- Step 1: Your Information -->
             @if ($currentStep == 1)
                 <div id="step1" class="step">
@@ -38,7 +39,6 @@
                             WhatsApp:
                         </x-dialogs.input-text>
 
-                       
                         <button type="submit"
                             class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
                             Next
@@ -53,18 +53,20 @@
                     <h2 class="text-2xl font-bold">Step 2: Travel Details</h2>
                     <div class="grid grid-cols-1 gap-4">
                         <x-dialogs.input-date id="start" name="start" placeholder="Start Date"
-                            class="p-2 border border-gray-300 rounded" >
+                            class="p-2 border border-gray-300 rounded" required>
                             From:
                         </x-dialogs.input-date>
 
-                        <label for="state" class="block text-gray-700">Select a State:</label>
-                        <select id="state" name="state" class="p-2 border border-gray-300 rounded" 
-                            onchange="showAttractions(this.value)">
-                            <option value="" disabled selected>Select a state</option>
+                        <h3 class="block text-gray-700">Select States:</h3>
+                        <div id="state-checkboxes" class="space-y-2">
                             @foreach ($states as $state)
-                                <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                <div>
+                                    <input type="checkbox" id="state{{ $state->id }}" name="states[]"
+                                        value="{{ $state->id }}" onchange="showAttractions()">
+                                    <label for="state{{ $state->id }}" class="ml-2">{{ $state->name }}</label>
+                                </div>
                             @endforeach
-                        </select>
+                        </div>
 
                         <div id="attractions" class="hidden">
                             <h3 class="font-bold">Attractions:</h3>
@@ -95,14 +97,15 @@
                     <p>Email: {{ old('email', $step1Data['email'] ?? '') }}</p>
                     <p>WhatsApp: {{ old('whatsapp', $step1Data['whatsapp'] ?? '') }}</p>
                     <p>Start Date: {{ old('start', $step2Data['start'] ?? '') }}</p>
-                    <p>State: {{ optional($states->find(old('state', $step2Data['state'] ?? '')))->name }}</p>
-                    <p>Attractions: {{ implode(', ', old('attractions', [])) }}</p>
+                    <p>States: {{ implode(', ', $states->whereIn('id', old('states', []))->pluck('name')->toArray()) }}
+                    </p>
+                    <p>Attractions: {{ implode(', ', $attractions->whereIn('id', old('attractions', []))->pluck('name')->toArray()) }}</p>
 
                     <button type="submit"
                         class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
                         Inquire for Custom Package
                     </button>
-                    
+
                     <button type="submit" name="currentStep" value="2"
                         class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                         Back
@@ -114,26 +117,42 @@
     </x-container>
 
     <script>
-        async function showAttractions(stateId) {
-            const response = await fetch(`{{ env('APP_ASSET') }}api/attractions/${stateId}`);
-            const attractions = await response.json();
-
+        const stateNames = @json($states->keyBy('id')->map(function ($state) {
+            return $state->name;
+        }));
+    
+        async function showAttractions() {
+            const selectedStates = Array.from(document.querySelectorAll('input[name="states[]"]:checked')).map(input => input.value);
             const attractionList = document.getElementById('attraction-list');
             attractionList.innerHTML = '';
-
-            if (attractions.length) {
+    
+            if (selectedStates.length) {
                 document.getElementById('attractions').classList.remove('hidden');
-                attractions.forEach(attraction => {
-                    attractionList.innerHTML += `
-                        <div>
-                            <input type="checkbox" id="attraction${attraction.id}" name="attractions[]" value="${attraction.id}">
-                            <label for="attraction${attraction.id}" class="ml-2">${attraction.name}</label>
-                        </div>
-                    `;
-                });
+    
+                for (const stateId of selectedStates) {
+                    const response = await fetch(`{{ env('APP_ASSET') }}api/attractions/${stateId}`);
+                    const attractions = await response.json();
+    
+                    // Get the state name from the mapping
+                    const stateName = stateNames[stateId]; // This will now correctly access the state name
+                    const stateHeader = document.createElement('h4');
+                    stateHeader.className = 'font-bold mt-4';
+                    stateHeader.innerText = `Attractions in ${stateName}`; 
+                    attractionList.appendChild(stateHeader);
+    
+                    attractions.forEach(attraction => {
+                        attractionList.innerHTML += `
+                            <div>
+                                <input type="checkbox" id="attraction${attraction.id}" name="attractions[]" value="${attraction.id}">
+                                <label for="attraction${attraction.id}" class="ml-2">${attraction.name}</label>
+                            </div>
+                        `;
+                    });
+                }
             } else {
                 document.getElementById('attractions').classList.add('hidden');
             }
         }
     </script>
+    
 </x-layout>
