@@ -1,13 +1,3 @@
-{{-- <nav id="navigation" class="flex justify-between items-center fixed z-50 w-full">
-    <a href="{{ route('home') }}" class="flex items-center ml-6">
-        <img src="https://youthconnecttours.com/assets/images/cname.png" alt="Youth connect tours logo"
-            class="h-[5rem] w-auto" />
-
-    </a>
-    <ul class="bg-[rgb(255,68,0)] flex justify-end items-end">
-        {{ $slot }}
-    </ul>
-</nav> --}}
 
 <!-- component -->
 
@@ -18,7 +8,7 @@
                 class="flex px-6 w-1/2 items-center font-semibold
             md:w-1/5 md:px-1 md:flex md:items-center md:justify-center"
                 x-transition:enter="transition ease-out duration-300">
-                <a href="{{ route('home') }}"><img src="https://youthconnecttours.com/assets/images/cname.png" alt="Youth connect tours logo"
+                <a href="{{ route('home') }}"><img src="{{ asset('asset/images/cname.png') }}" alt="Youth connect tours logo"
                     class="h-[5rem] w-auto" /></a>
             </div>
 

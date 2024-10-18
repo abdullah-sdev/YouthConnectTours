@@ -47,8 +47,10 @@
                                 @endfor
                             </p>
                             <br>
-                            <a href="{{ route('tour.detail', $attraction->slug()) }}"
-                                class="inline-block mt-0.5 text-xs py-1 px-2.5 border-none rounded bg-[#fe7200] text-white cursor-pointer transition duration-300 hover:bg-[#454545] no-underline">View</a>
+                            {{-- <a href="{{ route('tour.detail', $attraction->slug()) }}"
+                                class="inline-block mt-0.5 text-xs py-1 px-2.5 border-none rounded bg-[#fe7200] text-white cursor-pointer transition duration-300 hover:bg-[#454545] no-underline">View</a> --}}
+                            <a href="{{  route('tour.make')  }}"
+                                class="inline-block mt-0.5 text-sm py-2 px-4 rounded-md bg-[#fe7200] text-white font-semibold cursor-pointer transition duration-300 hover:bg-[#454545] shadow-sm hover:shadow-md no-underline">Book Now</a>
                         </div>
                     </x-cards.card-1>
                 @empty
@@ -60,19 +62,26 @@
             <x-slot:popular>
 
                 <x-cards.card-2 style="background-image: url('{{ asset('asset/images/product-banner01.png') }}');">
-                    <div class="txt flex flex-col items-center justify-center text-center bg-opacity-40 bg-orange-500 p-3 rounded-md text-slate-00">
+                    <div
+                        class="txt flex flex-col items-center justify-center text-center bg-opacity-40 bg-orange-500 p-3 rounded-md text-slate-00">
                         <h5 class="text-2xl font-bold">Kids Adventure
-                            <br> Kidzania</h5>
+                            <br> Kidzania
+                        </h5>
                         {{-- <p class="text-sm">Saturdays</p>
                         <p class="text-sm">15 minutes</p> --}}
-                        <a class="btn px-4 py-2 text-sm font-semibold rounded-full bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545]">Book Now</a>
+                        <a href="{{ route('tour.make') }}"
+                            class="btn mt-3 px-4 py-2 text-sm font-semibold rounded-full bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545]">Book
+                            Now</a>
                     </div>
                 </x-cards.card-2>
                 <x-cards.card-2
                     style="background-image: url('{{ asset('asset/images/product-banner02.png') }}'); background-size: cover; background-color: rgba(3, 146, 209, 0.3281687675);">
-                    <div class="txt flex flex-col items-center justify-center text-center bg-opacity-50 bg-orange-500 p-3 rounded-md text-slate-00">
+                    <div
+                        class="txt flex flex-col items-center justify-center text-center bg-opacity-50 bg-orange-500 p-3 rounded-md text-slate-00">
                         <h5 class="text-2xl font-bold">Theme Parks For Family</h5>
-                        <a class="btn px-4 py-2 text-sm font-semibold rounded-full bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545]">Book Now</a>
+                        <a href="{{ route('tour.make') }}"
+                            class="btn mt-3 px-4 py-2 text-sm font-semibold rounded-full bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545]">Book
+                            Now</a>
                     </div>
                 </x-cards.card-2>
             </x-slot:popular>
@@ -92,9 +101,11 @@
                     img="https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg">
                     <div class="txt flex flex-col justify-center items-center p-4 text-white rounded-md">
                         <h3 class="text-2xl font-bold">{{ $destination->name }}</h3>
-                        <p class="text-sm">{{ $destination->ideal_time_to_visit }}</p>
+                        <p class="">{{ $destination->ideal_time_to_visit }}</p>
                         <p class="text-sm">{{ $destination->ideal_time_period }} Days</p>
-                        <a class="btn px-4 py-2 text-sm font-semibold rounded-full bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545]">Book Now</a>
+                        <a
+                            href="{{ route('tour.make') }}"
+                            class="mt-3 btn px-4 py-2 text-sm font-semibold rounded-md bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545]">Book Now</a>
                     </div>
                 </x-cards.card-3>
             @empty
@@ -146,16 +157,13 @@
         </div>
 
 
-        <div class="designedplans grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 p-6 rounded-xl shadow-md">
-            @foreach ([
-                ['title' => 'Weekend Getaways', 'link' => '#'],
-                ['title' => 'Micro Adventures', 'link' => '#'],
-                ['title' => 'Girls Weekend Club', 'link' => '#'],
-                ['title' => 'Corporate Adventure Retreat', 'link' => '#']
-            ] as $plan)
+        <div
+            class="designedplans grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 p-6 rounded-xl shadow-md">
+            @foreach ([['title' => 'Weekend Getaways', 'link' => '#'], ['title' => 'Micro Adventures', 'link' => '#'], ['title' => 'Girls Weekend Club', 'link' => '#'], ['title' => 'Corporate Adventure Retreat', 'link' => '#']] as $plan)
                 <div class="designplan bg-no-repeat bg-cover w-full h-[200px] grid place-items-end rounded-lg overflow-hidden transition-transform transform hover:scale-105"
                     style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(http://travelandtours.pk/wp-content/uploads/2020/05/weekend.jpg?id=1634);">
-                    <h3 class="text-center p-4 text-white bg-opacity-75 bg-black no-underline text-1.5xl inline-block w-full text-shadow-md">
+                    <h3
+                        class="text-center p-4 text-white bg-opacity-75 bg-black no-underline text-1.5xl inline-block w-full text-shadow-md">
                         <a href="{{ $plan['link'] }}" class="hover:text-orange-500 transition-colors duration-300">
                             {{ $plan['title'] }}
                         </a>
@@ -166,8 +174,8 @@
     </x-container>
 
     <x-container>
-        <div class="tour_form_section grid place-items-center mt-8 text-white bg-cover bg-no-repeat bg-center rounded-lg p-16"
-             style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://travelandtours.pk/wp-content/uploads/2020/05/iStock-537458148.jpg?id=1671');">
+        <div class="tour_form_section grid place-items-center mt-8 text-white bg-cover bg-no-repeat bg-center rounded-lg lg:p-16 p-4"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://travelandtours.pk/wp-content/uploads/2020/05/iStock-537458148.jpg?id=1671');">
             <h2 class="text-3xl font-bold pb-2">Arrange Tours with us!</h2>
             <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro et in iure eaque pariatur a distinctio
@@ -175,12 +183,14 @@
                 delectus aliquid minima ab. Eos accusantium sit earum, itaque qui nobis, harum, voluptatibus voluptatem
                 veniam voluptates incidunt adipisci minus libero placeat ipsa?
             </p>
-            <div class="buttons flex flex-row gap-2 p-4 w-full sm:w-3/4">
-                <a href="{{ route('book-a-tour') }}" class="btn px-8 py-4 text-lg font-semibold rounded-lg bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545] w-full"
-                        data-bs-toggle="modal" onclick="showjointourmodal()">
+            <div class="buttons flex flex-col md:flex-row gap-2 p-4 w-full sm:w-3/4 justify-center">
+                <a href="{{ route('book-a-tour') }}"
+                    class="btn inline-block px-4 py-2 text-lg font-semibold rounded-lg bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545] md:w-auto w-full"
+                    data-bs-toggle="modal" onclick="showjointourmodal()">
                     Book a Tour
                 </a>
-                <a href="{{ route('tour.make') }}" class="btn px-8 py-4 text-lg font-semibold rounded-lg bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545] w-full">
+                <a href="{{ route('tour.make') }}"
+                    class="btn inline-block px-4 py-2 text-lg font-semibold rounded-lg bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545] md:w-auto w-full">
                     Make Your Own Tour
                 </a>
             </div>

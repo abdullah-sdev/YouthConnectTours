@@ -1,13 +1,13 @@
 <x-layout>
 
     <header
-    class="bg-cover bg-no-repeat bg-fixed h-[80vh] text-center text-white text-1.7xl flex flex-col justify-center items-center bg-center"
-    style="background-image: linear-gradient(rgba(0, 0, 0, 0.408), rgba(0, 0, 0, 0.743)),url('{{ asset('asset/images/youth-connect-tours.jpg') }}');">
-    <div class="text">
-        <h2 class="text-3xl font-bold">Destinations</h2>
-    </div>
-</header>
-   
+        class="bg-cover bg-no-repeat bg-fixed h-[80vh] text-center text-white text-1.7xl flex flex-col justify-center items-center bg-center"
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.408), rgba(0, 0, 0, 0.743)),url('{{ asset('asset/images/youth-connect-tours.jpg') }}');">
+        <div class="text">
+            <h2 class="text-3xl font-bold">Destinations</h2>
+        </div>
+    </header>
+
     <x-container>
         <!-- Weekend Getaways -->
 
@@ -32,16 +32,20 @@
                 </x-cards.card-3> --}}
 
                 <x-cards.card-3
-                class="group relative bg-gray-800 hover:shadow-md hover:scale-105 transition duration-300"
-                img="{{ $destination->image ? asset('uploads/' . $destination->image) : 'https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg' }}">
-                <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-75 transition duration-300"></div>
-                <div class="txt absolute inset-0 flex flex-col justify-center items-center text-white">
-                    <h3 class="text-2xl font-bold">{{ $destination->name }}</h3>
-                    <p class="text-lg">{{ $destination->ideal_time_to_visit }}</p>
-                    <p class="text-lg">{{ $destination->ideal_time_period }} Days</p>
-                    <a href="{{ route('adminsa.destination.show', $destination->id) }}" class="btn mt-4 group-hover:text-white bg-orange-500 hover:bg-orange-700 py-2 px-3 rounded-md">Book Now</a>
-                </div>
-            </x-cards.card-3>
+                    class="group relative bg-gray-800 hover:shadow-md hover:scale-105 transition duration-300"
+                    img="{{ $destination->image ? asset('uploads/' . $destination->image) : 'https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg' }}">
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-75 transition duration-300">
+                    </div>
+                    <div class="txt absolute inset-0 flex flex-col justify-center items-center text-white">
+                        <h3 class="text-2xl font-bold">{{ $destination->name }}</h3>
+                        <p class="text-lg">{{ $destination->ideal_time_to_visit }}</p>
+                        <p class="text-lg">{{ $destination->ideal_time_period }} Days</p>
+                        <a href="{{ route('tour.make') }}"
+                            class="btn mt-4 group-hover:text-white bg-orange-500 hover:bg-orange-700 py-2 px-3 rounded-md">Book
+                            Now</a>
+                    </div>
+                </x-cards.card-3>
             @empty
                 Coming Soon!
             @endforelse

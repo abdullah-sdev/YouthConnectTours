@@ -25,9 +25,9 @@
             {{-- <x-nav-link href="{{ route('home') }}"> <i class="fa-solid fa-house"></i> Home</x-nav-link> --}}
             <x-nav.nav-link href="{{ route('home') }}"> <i class="fa-solid fa-house"></i>&nbsp;Home</x-nav.nav-link>
             <x-nav.nav-link href="{{ route('about') }}"> <i class="fa-solid fa-circle-info"></i>&nbsp;About</x-nav.nav-link>
-            <x-nav.nav-link href="{{ route('vaccations') }}"> <i class="fa-solid fa-tree"> </i>&nbsp;Attractions</x-nav.nav-link>
             <x-nav.nav-link href="{{ route('destinys') }}"> <i
                     class="fa-solid fa-location-dot"></i>&nbsp;Destination</x-nav.nav-link>
+            <x-nav.nav-link href="{{ route('vaccations') }}"> <i class="fa-solid fa-tree"> </i>&nbsp;Attractions</x-nav.nav-link>
             {{-- <x-nav.nav-link href="{{ route('tour.detail',  ['tour' => 'Nathiagali']) }}"><i class="fa-solid fa-truck-fast"></i>Transportation</x-nav.nav-link> --}}
 
 
@@ -43,9 +43,10 @@
             {{-- <div class="flex flex-col sm:flex-row gap-6 sm:items-center"> --}}
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="flex flex-col px-4 py-2 gap-2">
-                    <h3 class="text-2xl font-semibold">Youth Connect Tours</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium aperiam iure numquam?
-                        Dignissimos id eaque eveniet fugiat architecto, provident reiciendis.</p>
+                    <h3 class="text-2xl font-semibold text-orange-400">Youth Connect Tours</h3>
+                    <p>
+                        Welcome to Youth Connect Tours L.L.C., a company based in the UAE that specializes in managing tourism experiences. Our office is located in Dubai, UAE. We offer comprehensive tour programs to both corporate and individuals. Our services include custom-designed holidays and desert business travel, with a high level of attention to detail
+                    </p>
                 </div>
                 <div class="flex flex-col px-4 py-2 gap-2">
                     <ul class="list-none p-0 m-0 gap-2">
