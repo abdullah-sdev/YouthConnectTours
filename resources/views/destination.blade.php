@@ -1,19 +1,39 @@
 <x-layout>
+
     <header
-        style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.743)),url('https://travelandtours.pk/wp-content/uploads/2019/01/neelum-valley.jpg');">
-        <div class="text">
-            <h2>Destinations</h2>
-            {{-- <p>A perfect experience with Youth Connect Tours</p> --}}
-        </div>
-    </header>
+    class="bg-cover bg-no-repeat bg-fixed h-[80vh] text-center text-white text-1.7xl flex flex-col justify-center items-center bg-center"
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.408), rgba(0, 0, 0, 0.743)),url('{{ asset('asset/images/youth-connect-tours.jpg') }}');">
+    <div class="text">
+        <h2 class="text-3xl font-bold">Destinations</h2>
+    </div>
+</header>
    
     <x-container>
         <!-- Weekend Getaways -->
 
-        <div class="head">
-            <h2>Destinations</h2>
+        <div class="head text-center">
+            <h2 class="bold text-2xl font-bold border-b border-gray-300 pb-2">Destinations</h2>
+            {{-- <p class="text-center"><a href="{{ route('vaccations') }}"
+                    class="no-underline text-[#fe7200] hover:underline">View All Popular Attractions</a></p> --}}
         </div>
-        <div class="getaways">
+
+        <div class="getaways grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-2">
+            @forelse ($destinations as $destination)
+                <x-cards.card-3
+                    img="https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg">
+                    <div class="txt">
+                        <h3>{{ $destination->name }}</h3>
+                        <p>{{ $destination->ideal_time_to_visit }}</p>
+                        <p>{{ $destination->ideal_time_period }} Days</p>
+                        <a class="btn">Book Now</a>
+                    </div>
+                </x-cards.card-3>
+            @empty
+                Coming Soon!
+            @endforelse
+
+        </div>
+        {{-- <div class="getaways">
             <x-cards.card-3
                 img="https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg">
                 <div class="txt">
@@ -52,7 +72,7 @@
             </x-cards.card-3>
 
 
-        </div>
+        </div> --}}
     </x-container>
 
 

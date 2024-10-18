@@ -1,6 +1,6 @@
 <x-layout>
     <header
-        class="bg-cover bg-no-repeat bg-fixed h-[80vh] text-center text-white text-1.7xl"
+        class="bg-cover bg-no-repeat bg-fixed h-[80vh] text-center text-white text-1.7xl flex flex-col justify-center items-center bg-center"
         style="background-image: linear-gradient(rgba(0, 0, 0, 0.408), rgba(0, 0, 0, 0.743)),url('{{ asset('asset/images/youth-connect-tours.jpg') }}');">
         <div class="text">
             <h2 class="text-3xl font-bold">Youth Connect Tours</h2>
@@ -8,9 +8,10 @@
         </div>
     </header>
     <x-container>
-        <div class="head">
-            <h2>Explore our top offers</h2>
-            <p><a href="{{ route('vaccations') }}">View All Popular Attractions</a></p>
+        <div class="head text-center">
+            <h2 class="bold text-2xl font-bold border-b border-gray-300 pb-2">Explore our top offers</h2>
+            <p class="text-center"><a href="{{ route('vaccations') }}"
+                    class="no-underline text-[#fe7200] hover:underline">View All Popular Attractions</a></p>
         </div>
 
         <x-offerandtour>
@@ -18,15 +19,16 @@
                 @forelse ($attractions as $attraction)
                     <x-cards.card-1>
 
-                        <div class="img">
+                        <div class="img flex justify-center">
                             {{-- <img src="https://picsum.photos/200/200/?travel,adventure" height="" alt=""> --}}
-                            <img src="{{ env('APP_ASSET').'uploads/'.$attraction->display_picture }}"
-                                alt="xx">
+                            <img class="w-[200px] h-[200px] bg-cover bg-no-repeat bg-center object-cover rounded-[16px]"
+                                src="{{ env('APP_ASSET') . 'uploads/' . $attraction->display_picture }}" alt="xx">
                             {{-- <p>{{ env('APP_ASSET').$attraction->display_picture }}</p> --}}
                         </div>
-                        <div class="txt">
-                            <h4>{{ $attraction->name }}</h4>
-                            <span><i class="fa-solid fa-location-dot"></i>{{ $attraction->destination->name }}, UAE</span>
+                        <div class="flex flex-col justify-center p-2">
+                            <h4 class="text-xl font-bold">{{ $attraction->name }}</h4>
+                            <span><i class="fa-solid fa-location-dot"></i>{{ $attraction->destination->name }},
+                                UAE</span>
                             <p>
                                 {{-- {{ $attraction->description }} --}}
 
@@ -34,19 +36,19 @@
                             <x-tags>
                                 @forelse ($attraction->tags as $tag)
                                     <x-tag-item>{{ $tag->name }}</x-tag-item>
-
                                 @empty
                                     no tags
                                 @endforelse
                             </x-tags>
                             <p style="font-size:.7rem; ">
-                                Ratings: 
+                                Ratings:
                                 @for ($i = 0; $i < 5; $i++)
-                                <i class="fa-solid fa-star" style="color: rgb(255, 119, 0);"></i>
-                                @endfor 
+                                    <i class="fa-solid fa-star" style="color: rgb(255, 119, 0);"></i>
+                                @endfor
                             </p>
                             <br>
-                            <a class="btn" href="{{ route('tour.detail', $attraction->slug()) }}">View</a>
+                            <a href="{{ route('tour.detail', $attraction->slug()) }}"
+                                class="inline-block mt-0.5 text-xs py-1 px-2.5 border-none rounded bg-[#fe7200] text-white cursor-pointer transition duration-300 hover:bg-[#454545] no-underline">View</a>
                         </div>
                     </x-cards.card-1>
                 @empty
@@ -57,23 +59,20 @@
 
             <x-slot:popular>
 
-                <x-cards.card-2
-                    style="background-image: url('{{ asset('asset/images/product-banner01.png') }}');">
-                    <div class="txt">
-                        <h5>Kids Adventure
-                            Kidzania</h5>
-                        {{-- <p>Saturdays</p>
-                        <p>15 minutes</p> --}}
-                        <a class="btn">Book Now</a>
+                <x-cards.card-2 style="background-image: url('{{ asset('asset/images/product-banner01.png') }}');">
+                    <div class="txt flex flex-col items-center justify-center text-center bg-opacity-40 bg-orange-500 p-3 rounded-md text-slate-00">
+                        <h5 class="text-2xl font-bold">Kids Adventure
+                            <br> Kidzania</h5>
+                        {{-- <p class="text-sm">Saturdays</p>
+                        <p class="text-sm">15 minutes</p> --}}
+                        <a class="btn px-4 py-2 text-sm font-semibold rounded-full bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545]">Book Now</a>
                     </div>
                 </x-cards.card-2>
                 <x-cards.card-2
                     style="background-image: url('{{ asset('asset/images/product-banner02.png') }}'); background-size: cover; background-color: rgba(3, 146, 209, 0.3281687675);">
-                    <div class="txt">
-                        <h5>Theme Parks For Family</h5>
-                        {{-- <p>Saturdays</p>
-                        <p>15 minutes</p> --}}
-                        <a class="btn">Book Now</a>
+                    <div class="txt flex flex-col items-center justify-center text-center bg-opacity-50 bg-orange-500 p-3 rounded-md text-slate-00">
+                        <h5 class="text-2xl font-bold">Theme Parks For Family</h5>
+                        <a class="btn px-4 py-2 text-sm font-semibold rounded-full bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545]">Book Now</a>
                     </div>
                 </x-cards.card-2>
             </x-slot:popular>
@@ -84,302 +83,109 @@
     <x-container>
         <!-- Weekend Getaways -->
 
-        <div class="head">
-            <h2>Destinations</h2>
+        <div class="text-center">
+            <h2 class="bold text-2xl font-bold border-b border-gray-300 pb-2">Destinations</h2>
         </div>
-        <div class="getaways">
+        <div class="getaways grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-2">
             @forelse ($destinations as $destination)
                 <x-cards.card-3
                     img="https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg">
-                    <div class="txt">
-                        <h3>{{ $destination->name }}</h3>
-                        <p>{{ $destination->ideal_time_to_visit }}</p>
-                        <p>{{ $destination->ideal_time_period }} Days</p>
-                        {{-- <p>2 days</p> --}}
-                        <a class="btn">Book Now</a>
+                    <div class="txt flex flex-col justify-center items-center p-4 text-white rounded-md">
+                        <h3 class="text-2xl font-bold">{{ $destination->name }}</h3>
+                        <p class="text-sm">{{ $destination->ideal_time_to_visit }}</p>
+                        <p class="text-sm">{{ $destination->ideal_time_period }} Days</p>
+                        <a class="btn px-4 py-2 text-sm font-semibold rounded-full bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545]">Book Now</a>
                     </div>
                 </x-cards.card-3>
             @empty
                 Coming Soon!
             @endforelse
 
-            {{-- <x-cards.card-3
-                img="https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg">
-                <div class="txt">
-                    <h3>Sharjha</h3>
-                    <p>Jan - Dec</p>
-                    <p>2 days</p>
-                    <button>Book Now</button>
-                </div>
-            </x-cards.card-3>
-            <x-cards.card-3
-                img="https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg">
-                <div class="txt">
-                    <h3>Abu Dhabi</h3>
-                    <p>Jan - Dec</p>
-                    <p>2 days</p>
-                    <button>Book Now</button>
-                </div>
-            </x-cards.card-3>
-            <x-cards.card-3
-                img="https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg">
-                <div class="txt">
-                    <h3>Al Ain</h3>
-                    <p>Jan - Dec</p>
-                    <p>2 days</p>
-                    <button>Book Now</button>
-                </div>
-            </x-cards.card-3> --}}
-
-
         </div>
     </x-container>
 
 
-    {{-- <x-container>
-        <div class="head">
-            <h2>Explore our fleet</h2>
-        </div>
-        <div class="fleets">
-            <x-cards.card-4 img="https://travelandtours.pk/wp-content/uploads/2020/05/corolla-300x300.jpg">
-                <div class="vehicle">
-                    <h4>Toyota Corolla Altis</h4>
-                    <p>Sedans</p>
-                </div>
-                <div class="price">
-                    <p><span>From</span> Rs 8000</p>
-                </div>
-                <div class="specs">
-                    <div class="spec">
-                        5 adults
-                    </div>
-                    <div class="spec">
-                        2 bags
-                    </div>
-                    <div class="spec">
-                        A/C
-                    </div>
-                </div>
-                <button>dsadsa</button>
-            </x-cards.card-4>
-            <x-cards.card-4 img="https://travelandtours.pk/wp-content/uploads/2020/05/corolla-300x300.jpg">
-                <div class="vehicle">
-                    <h4>Toyota Corolla Altis</h4>
-                    <p>Sedans</p>
-                </div>
-                <div class="price">
-                    <p><span>From</span> Rs 8000</p>
-                </div>
-                <div class="specs">
-                    <div class="spec">
-                        5 adults
-                    </div>
-                    <div class="spec">
-                        2 bags
-                    </div>
-                    <div class="spec">
-                        A/C
-                    </div>
-                </div>
-                <button>dsadsa</button>
-            </x-cards.card-4>
-            <x-cards.card-4 img="https://travelandtours.pk/wp-content/uploads/2020/05/corolla-300x300.jpg">
-                <div class="vehicle">
-                    <h4>Toyota Corolla Altis</h4>
-                    <p>Sedans</p>
-                </div>
-                <div class="price">
-                    <p><span>From</span> Rs 8000</p>
-                </div>
-                <div class="specs">
-                    <div class="spec">
-                        5 adults
-                    </div>
-                    <div class="spec">
-                        2 bags
-                    </div>
-                    <div class="spec">
-                        A/C
-                    </div>
-                </div>
-                <button>dsadsa</button>
-            </x-cards.card-4>
-            <x-cards.card-4 img="https://travelandtours.pk/wp-content/uploads/2020/05/corolla-300x300.jpg">
-                <div class="vehicle">
-                    <h4>Toyota Corolla Altis</h4>
-                    <p>Sedans</p>
-                </div>
-                <div class="price">
-                    <p><span>From</span> Rs 8000</p>
-                </div>
-                <div class="specs">
-                    <div class="spec">
-                        5 adults
-                    </div>
-                    <div class="spec">
-                        2 bags
-                    </div>
-                    <div class="spec">
-                        A/C
-                    </div>
-                </div>
-                <button>dsadsa</button>
-            </x-cards.card-4>
-            <x-cards.card-4 img="https://travelandtours.pk/wp-content/uploads/2020/05/corolla-300x300.jpg">
-                <div class="vehicle">
-                    <h4>Toyota Corolla Altis</h4>
-                    <p>Sedans</p>
-                </div>
-                <div class="price">
-                    <p><span>From</span> Rs 8000</p>
-                </div>
-                <div class="specs">
-                    <div class="spec">
-                        5 adults
-                    </div>
-                    <div class="spec">
-                        2 bags
-                    </div>
-                    <div class="spec">
-                        A/C
-                    </div>
-                </div>
-                <button>dsadsa</button>
-            </x-cards.card-4>
-
-        </div>
-
-    </x-container> --}}
-
     <!-- Advertise -->
-    <section class="container"
+    <section class="bg-center px-8 sm:px-11 py-8 flex flex-col bg-no-repeat bg-cover w-full"
         style="background-image: url('https://travelandtours.pk/wp-content/uploads/2020/05/iStock-537458148.jpg?id=1671');">
-        <div class="advertisement">
-            <div class="left">
-                {{-- <div class="img">
-                    <img src="https://travelandtours.pk/wp-content/uploads/2020/05/maxresdefault.jpg" alt=""
-                        height="250rem" width="400rem">
-                </div> --}}
-                <div class="txt">
-                    <h2>
+        <div class="advertisement flex justify-center items-center md:flex-row flex-col">
+            <div class="left md:w-1/2 p-4">
+                <div class="txt p-4 bg-gray-900 text-white text-2xl md:w-2/5">
+                    <h2 class="bold text-4xl font-bold border-b border-gray-300 pb-2">
                         LAST MINUTE OFFERS
                     </h2>
                 </div>
             </div>
-            <div class="right">
-                <h2>
+            <div class="right md:w-1/2 p-4">
+                <h2 class="bold text-5xl font-bold pb-2">
                     PACK YOUR BAGS
                 </h2>
-                <p>
-                    Pack your bags and get ready for an adventure of a life time. Offering over <span>100 sports and
-                        adventure activities</span> at over <span>500 locations nationwide</span>. Either you are a
+                <p class="text-sm p-4">
+                    Pack your bags and get ready for an adventure of a life time. Offering over <span
+                        class="text-orange-500 font-bold">100 sports and
+                        adventure activities</span> at over <span class="text-orange-500 font-bold">500 locations
+                        nationwide</span>. Either you are a
                     <b>solo traveler</b>, traveling with <b>family, friends or colleagues</b> looking for a
                     <span>weekend getaway</span>, or a group of female friends looking for <span>girls exclusive
                         getaways</span>, or a company looking for a <span>corporate adventure retreat</span>, we
                     have something for everyone.
                 </p>
-                <a href="#">View Best Deals</a>
-                <img src="https://travelandtours.pk/wp-content/uploads/2020/05/1.jpg" 
-                    alt="" >
+                <a href="#"
+                    class="bg-gray-900 hover:bg-orange-500 text-white px-4 py-2 rounded-md transition duration-300 ease-in-out">View
+                    Best Deals</a>
+                <img src="https://travelandtours.pk/wp-content/uploads/2020/05/1.jpg" alt=""
+                    class="max-w-[80vw] md:max-w-[20rem] m-4">
             </div>
         </div>
     </section>
 
-    <section class="container">
-        <div class="head">
-            <h2>Designed for you</h2>
-        </div>
-        <div class="designedplans">
-            <div class="designplan"
-                style="background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.743)), url(http://travelandtours.pk/wp-content/uploads/2020/05/weekend.jpg?id=1634);">
-                <h3>
-                    <a href="#">Weekend Getaways</a>
-                </h3>
-            </div>
-            <div class="designplan"
-                style="background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.743)), url(http://travelandtours.pk/wp-content/uploads/2020/05/weekend.jpg?id=1634);">
-                <h3>
-                    <a href="#">Micro Adventures</a>
-                </h3>
-            </div>
-            <div class="designplan"
-                style="background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.743)), url(http://travelandtours.pk/wp-content/uploads/2020/05/weekend.jpg?id=1634);">
-                <h3>
-                    <a href="#">Girls Weekend Club</a>
-                </h3>
-            </div>
-            <div class="designplan"
-                style="background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.743)), url(http://travelandtours.pk/wp-content/uploads/2020/05/weekend.jpg?id=1634);">
-                <h3>
-                    <a href="#">Coporate Adventure Retreat</a>
-                </h3>
-            </div>
-        </div>
-    </section>
 
     <x-container>
+        <div class="text-center">
+            <h2 class="bold text-2xl font-bold border-b border-gray-300 pb-2">Designed for you</h2>
+        </div>
 
-        <div class="tour_form_section">
-            <h2>Arrange Tours with us!</h2>
+
+        <div class="designedplans grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 p-6 rounded-xl shadow-md">
+            @foreach ([
+                ['title' => 'Weekend Getaways', 'link' => '#'],
+                ['title' => 'Micro Adventures', 'link' => '#'],
+                ['title' => 'Girls Weekend Club', 'link' => '#'],
+                ['title' => 'Corporate Adventure Retreat', 'link' => '#']
+            ] as $plan)
+                <div class="designplan bg-no-repeat bg-cover w-full h-[200px] grid place-items-end rounded-lg overflow-hidden transition-transform transform hover:scale-105"
+                    style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(http://travelandtours.pk/wp-content/uploads/2020/05/weekend.jpg?id=1634);">
+                    <h3 class="text-center p-4 text-white bg-opacity-75 bg-black no-underline text-1.5xl inline-block w-full text-shadow-md">
+                        <a href="{{ $plan['link'] }}" class="hover:text-orange-500 transition-colors duration-300">
+                            {{ $plan['title'] }}
+                        </a>
+                    </h3>
+                </div>
+            @endforeach
+        </div>
+    </x-container>
+
+    <x-container>
+        <div class="tour_form_section grid place-items-center mt-8 text-white bg-cover bg-no-repeat bg-center rounded-lg p-16"
+             style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://travelandtours.pk/wp-content/uploads/2020/05/iStock-537458148.jpg?id=1671');">
+            <h2 class="text-3xl font-bold pb-2">Arrange Tours with us!</h2>
             <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro et in iure eaque pariatur a distinctio
                 eos perferendis recusandae eveniet officia quisquam debitis molestias fugiat architecto hic corrupti,
                 delectus aliquid minima ab. Eos accusantium sit earum, itaque qui nobis, harum, voluptatibus voluptatem
                 veniam voluptates incidunt adipisci minus libero placeat ipsa?
             </p>
-            <div class="buttons">
-                <button class="btn" data-bs-toggle="modal" onclick="showjointourmodal()">
+            <div class="buttons flex flex-row gap-2 p-4 w-full sm:w-3/4">
+                <a href="{{ route('book-a-tour') }}" class="btn px-8 py-4 text-lg font-semibold rounded-lg bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545] w-full"
+                        data-bs-toggle="modal" onclick="showjointourmodal()">
                     Book a Tour
-                </button>
-                <button class="btn" data-bs-toggle="modal" onclick="showmaketourmodal()">
+                </a>
+                <a href="{{ route('tour.make') }}" class="btn px-8 py-4 text-lg font-semibold rounded-lg bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545] w-full">
                     Make Your Own Tour
-                </button>
-
+                </a>
             </div>
         </div>
-        {{-- <div class="modal fade" id="jointourmodal" tabindex="-1" aria-labelledby="jointourmodalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="jointourmodalLabel">Join a Tour</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" method="POST">
-                            @csrf
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" name="name"
-                                    aria-describedby="nameHelp" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    aria-describedby="emailHelp" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="whatsapp" class="form-label">Whatsapp</label>
-                                <input type="text" class="form-control" id="whatsapp" name="whatsapp"
-                                    aria-describedby="whatsappHelp" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="instructions" class="form-label">Instructions</label>
-                                <textarea class="form-control" id="instructions" name="instructions" rows="3" required></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="tourname" class="form-label">Tour Name</label>
-                                <input type="text" class="form-control" id="tourname" name="tourname"
-                                    aria-describedby="tournameHelp" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        <x-dialogs.dialog1 id="joinatour">
+        {{-- <x-dialogs.dialog1 id="joinatour">
             <x-slot:title>
                 Book a Tour
             </x-slot:title>
@@ -404,7 +210,7 @@
                     <option value="3">5 nights 6 days</option>
                     <option value="4">6 nights 7 days</option>
                 </x-dialogs.input-select>
-                <div class="modal-footer">
+                <div class="flex justify-end items-center p-4">
                     <button type="reset" class="btn btn-secondary">reset</button>
                     <button type="submit" class="btn btn-primary">Inquire for Booking</button>
                 </div>
@@ -507,7 +313,7 @@
                 alert("Form submitted!");
                 document.getElementById('travelDialog').close();
             });
-        </script>
+        </script> --}}
 
     </x-container>
 </x-layout>

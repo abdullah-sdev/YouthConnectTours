@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TourController;
+use App\Models\Attraction;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -15,6 +16,21 @@ Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('destinations', [HomeController::class, 'destination'])->name('destinys');
 Route::get('vacations', [HomeController::class, 'vaccations'])->name('vaccations');
 Route::get('terms', [HomeController::class, 'terms'])->name('terms');
+Route::get('contact', [HomeController::class, 'contact'])->name('contact'); 
+Route::get('book-a-tour', [HomeController::class, 'bookATour'])->name('book-a-tour');
+
+Route::get('make-a-tour', [HomeController::class, 'makeATour'])->name('tour.make');
+Route::post('make-a-tour', [HomeController::class, 'requestTour'])->name('tour.request');
+// Route::get('/travel/step1', [HomeController::class, 'step1'])->name('makeatour.step1');
+// Route::post('/travel/step2', [HomeController::class, 'step2'])->name('makeatour.step2');
+// Route::get('/travel/step2', [HomeController::class, 'step2Form'])->name('makeatour.step2.form');
+// Route::post('/travel/step3', [HomeController::class, 'step3'])->name('makeatour.step3');
+// Route::post('/travel/submit', [HomeController::class, 'submit'])->name('makeatour.submit');
+
+Route::get('/api/attractions/{destination}', function ($destination) {
+    return Attraction::where('destination_id', $destination)->get();
+});
+
 
 // Route::get('tours/skardu', function () {
 //     return view('detail');

@@ -6,7 +6,15 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      perspective: {
+        '400': '400px',
+      },
+      transformOrigin: {
+        'top': '50% 0%',
+      },
+
+    },
   },
   plugins: [],
 }

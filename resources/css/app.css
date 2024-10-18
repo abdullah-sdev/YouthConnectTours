@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.kick:hover span:first-child {
+    transform: translate3d(0, 0, -35px) rotateX(90deg);
+}
+
+.kick:hover span:last-child {
+    transform: translate3d(0, 0, 0) rotateX(0deg);
+}
