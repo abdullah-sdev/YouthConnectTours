@@ -20,15 +20,16 @@
                 <x-cards.card-3
                     class="group relative bg-gray-800 hover:shadow-md hover:scale-105 transition duration-300"
                     img="{{ asset('uploads/' . str_replace('http://localhost/travelandtours_new/public/', '', $attraction->display_picture)) }}">
+                    {{-- img="{{ $attraction->display_picture }}"> --}}
                     <div
                         class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-75 transition duration-300">
                     </div>
-                    <div class="txt absolute inset-0 flex flex-col justify-center items-center text-white">
+                    <div class="txt absolute inset-0 flex flex-col items-center justify-center text-white">
                         <h3 class="text-2xl font-bold">{{ $attraction->name }}</h3>
                         <p class="text-lg">{{ $attraction->destination->name }}</p>
                         <p class="text-lg">5 star Rating</p>
                         <a href="{{ route('tour.make') }}"
-                            class="btn mt-4 group-hover:text-white bg-orange-500 hover:bg-orange-700 py-2 px-3 rounded-md">Book
+                            class="mt-4 px-4 py-2 rounded-md bg-orange-500 hover:bg-orange-700 transition duration-300">Book
                             Now</a>
                     </div>
                 </x-cards.card-3>

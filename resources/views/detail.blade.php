@@ -23,13 +23,13 @@
                             <div class="swiper-wrapper">
                                 <!-- Slides -->
                                 <div class="swiper-slide md:h-auto"><img
-                                        src="https://travelandtours.pk/wp-content/uploads/2019/10/Lahore-Aerial-Joyride.jpg"
+                                        src="{{ asset('asset/images/BurjAlArab.jpg') }}"
                                         alt=""></div> 
                                 <div class="swiper-slide md:h-auto"><img
-                                        src="https://travelandtours.pk/wp-content/uploads/2019/10/Lahore-Aerial-Joyride.jpg"
+                                        src="{{ asset('asset/images/BurjAlArab.jpg') }}"
                                         alt=""></div>
                                 <div class="swiper-slide md:h-auto"><img
-                                        src="https://travelandtours.pk/wp-content/uploads/2019/10/Lahore-Aerial-Joyride.jpg"
+                                        src="{{ asset('asset/images/BurjAlArab.jpg') }}"
                                         alt=""></div>
                             </div>
                             <!-- If we need pagination -->

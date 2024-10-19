@@ -21,6 +21,8 @@
 
                         <div class="img flex justify-center">
                             {{-- <img src="https://picsum.photos/200/200/?travel,adventure" height="" alt=""> --}}
+                            {{-- <img class="w-[200px] h-[200px] bg-cover bg-no-repeat bg-center object-cover rounded-[16px]"
+                                src="{{ $attraction->display_picture }}" alt="xx"> --}}
                             <img class="w-[200px] h-[200px] bg-cover bg-no-repeat bg-center object-cover rounded-[16px]"
                                 src="{{ env('APP_ASSET') . 'uploads/' . $attraction->display_picture }}" alt="xx">
                             {{-- <p>{{ env('APP_ASSET').$attraction->display_picture }}</p> --}}
@@ -99,7 +101,7 @@
         <div class="getaways grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-2">
             @forelse ($destinations as $destination)
                 <x-cards.card-3
-                    img="https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg">
+                    img="{{ asset('asset/images/camels.jpg') }}">
                     <div class="txt flex flex-col justify-center items-center p-4 text-white rounded-md">
                         <h3 class="text-2xl font-bold">{{ $destination->name }}</h3>
                         <p class="">{{ $destination->ideal_time_to_visit }}</p>
@@ -119,7 +121,7 @@
 
     <!-- Advertise -->
     <section class="bg-center px-8 sm:px-11 py-8 flex flex-col bg-no-repeat bg-cover w-full"
-        style="background-image: url('https://travelandtours.pk/wp-content/uploads/2020/05/iStock-537458148.jpg?id=1671');">
+        style="background-image: url('{{ asset('asset/images/camels.jpg') }}');">
         <div class="advertisement flex justify-center items-center md:flex-row flex-col">
             <div class="left md:w-1/2 p-4">
                 <div class="txt p-4 bg-gray-900 text-white text-2xl md:w-2/5">
@@ -128,24 +130,23 @@
                     </h2>
                 </div>
             </div>
-            <div class="right md:w-1/2 p-4">
-                <h2 class="bold text-5xl font-bold pb-2">
+            <div class="right md:w-1/2 p-4 bg-slate-600 bg-opacity-90 rounded-lg">
+                <h2 class="bold text-5xl font-bold pb-2 text-slate-200">
                     PACK YOUR BAGS
                 </h2>
-                <p class="text-sm p-4">
-                    Pack your bags and get ready for an adventure of a life time. Offering over <span
-                        class="text-orange-500 font-bold">100 sports and
-                        adventure activities</span> at over <span class="text-orange-500 font-bold">500 locations
-                        nationwide</span>. Either you are a
+                <p class="p-4 text-slate-200">
+                    Pack your bags and get ready for an adventure of a lifetime. Offering over
+                    <span class="text-orange-500 font-bold">100 sports and adventure activities</span> at over
+                    <span class="text-orange-500 font-bold">500 locations nationwide</span>. Whether you're a
                     <b>solo traveler</b>, traveling with <b>family, friends or colleagues</b> looking for a
-                    <span>weekend getaway</span>, or a group of female friends looking for <span>girls exclusive
-                        getaways</span>, or a company looking for a <span>corporate adventure retreat</span>, we
+                    <span>weekend getaway</span>, or a group of female friends looking for a <span>girls exclusive
+                        getaway</span>, or a company looking for a <span>corporate adventure retreat</span>, we
                     have something for everyone.
                 </p>
                 <a href="#"
                     class="bg-gray-900 hover:bg-orange-500 text-white px-4 py-2 rounded-md transition duration-300 ease-in-out">View
                     Best Deals</a>
-                <img src="https://travelandtours.pk/wp-content/uploads/2020/05/1.jpg" alt=""
+                <img src="{{ asset('asset/images/BurjAlArab.jpg') }}" alt=""
                     class="max-w-[80vw] md:max-w-[20rem] m-4">
             </div>
         </div>
@@ -176,13 +177,12 @@
 
     <x-container>
         <div class="tour_form_section grid place-items-center mt-8 text-white bg-cover bg-no-repeat bg-center rounded-lg lg:p-16 p-4"
-            style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://travelandtours.pk/wp-content/uploads/2020/05/iStock-537458148.jpg?id=1671');">
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ asset('asset/images/camels.jpg') }}');">
             <h2 class="text-3xl font-bold pb-2">Arrange Tours with us!</h2>
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro et in iure eaque pariatur a distinctio
-                eos perferendis recusandae eveniet officia quisquam debitis molestias fugiat architecto hic corrupti,
-                delectus aliquid minima ab. Eos accusantium sit earum, itaque qui nobis, harum, voluptatibus voluptatem
-                veniam voluptates incidunt adipisci minus libero placeat ipsa?
+                Our quality policy ensures that we maintain tight control over the quality of our tours and related services. Our dedicated corporate travel team works closely with our clients to provide them with immediate responses and excellent customer service. We are committed to living up to our motto of making holidays unforgettable.
+
+
             </p>
             <div class="buttons flex flex-col md:flex-row gap-2 p-4 w-full sm:w-3/4 justify-center">
                 <a href="{{ route('book-a-tour') }}"
