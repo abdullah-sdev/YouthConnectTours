@@ -20,7 +20,7 @@
         <div class="getaways grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-2">
             @forelse ($destinations as $destination)
                 {{-- <x-cards.card-3
-                    img="{{ $destination->image ? asset('uploads/' . $destination->image) : 'https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg' }}"
+                    img="{{ $destination->image ? asset('uploads/' . $destination->image) : '{{ asset('asset/images/camels.jpg') }}' }}"
                     class="group relative hover:shadow-md hover:scale-105 transition duration-300">
                     <div class="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-75 transition duration-300"></div>
                     <div class="txt absolute inset-0 flex flex-col justify-center items-center text-white">
@@ -33,7 +33,7 @@
 
                 <x-cards.card-3
                     class="group relative bg-gray-800 hover:shadow-md hover:scale-105 transition duration-300"
-                    img="{{ $destination->image ? asset('uploads/' . $destination->image) : 'https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg' }}">
+                    img="{{ $destination->image ? asset('uploads/' . $destination->image) : asset('asset/images/camels.jpg') }}">
                     <div
                         class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-75 transition duration-300">
                     </div>
@@ -53,7 +53,7 @@
         </div>
         {{-- <div class="getaways">
             <x-cards.card-3
-                img="https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg">
+                img="{{ asset('asset/images/camels.jpg') }}">
                 <div class="txt">
                     <h3>Dubai</h3>
                     <p>Jan - Dec</p>
@@ -62,7 +62,7 @@
                 </div>
             </x-cards.card-3>
             <x-cards.card-3
-                img="https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg">
+                img="{{ asset('asset/images/camels.jpg') }}">
                 <div class="txt">
                     <h3>Sharjha</h3>
                     <p>Jan - Dec</p>
@@ -71,7 +71,7 @@
                 </div>
             </x-cards.card-3>
             <x-cards.card-3
-                img="https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg">
+                img="{{ asset('asset/images/camels.jpg') }}">
                 <div class="txt">
                     <h3>Abu Dhabi</h3>
                     <p>Jan - Dec</p>
@@ -80,7 +80,7 @@
                 </div>
             </x-cards.card-3>
             <x-cards.card-3
-                img="https://travelandtours.pk/wp-content/uploads/2019/10/56d305b4c83ec8e8a1be271c314af4ff-300x300.jpg">
+                img="{{ asset('asset/images/camels.jpg') }}">
                 <div class="txt">
                     <h3>Al Ain</h3>
                     <p>Jan - Dec</p>

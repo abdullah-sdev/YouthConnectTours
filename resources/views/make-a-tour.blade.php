@@ -72,7 +72,7 @@
 
                         <div id="attractions" class="hidden">
                             <h3 class="font-bold">Attractions:</h3>
-                            <div id="attraction-list" class="grid grid-cols-1 gap-4"></div>
+                            <div id="attraction-list" class="grid grid-cols-4 justify-center gap-4"></div>
                         </div>
 
                         <button type="submit" name="currentStep" value="1"
@@ -137,18 +137,19 @@
     
                     // Get the state name from the mapping
                     const stateName = stateNames[stateId]; // This will now correctly access the state name
-                    const stateHeader = document.createElement('h4');
-                    stateHeader.className = 'font-bold mt-4';
+                    const stateHeader = document.createElement('div');
+                    stateHeader.className = 'col-span-4 font-bold mt-4';
                     stateHeader.innerText = `Attractions in ${stateName}`; 
                     attractionList.appendChild(stateHeader);
     
                     attractions.forEach(attraction => {
-                        attractionList.innerHTML += `
-                            <div>
-                                <input type="checkbox" id="attraction${attraction.id}" name="attractions[]" value="${attraction.id}">
-                                <label for="attraction${attraction.id}" class="ml-2">${attraction.name}</label>
-                            </div>
+                        const attractionOption = document.createElement('div');
+                        attractionOption.className = 'col-span-1';
+                        attractionOption.innerHTML = `
+                            <input type="checkbox" id="attraction${attraction.id}" name="attractions[]" value="${attraction.id}">
+                            <label for="attraction${attraction.id}" class="ml-2">${attraction.name}</label>
                         `;
+                        attractionList.appendChild(attractionOption);
                     });
                 }
             } else {

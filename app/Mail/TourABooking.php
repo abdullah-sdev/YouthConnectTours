@@ -16,7 +16,14 @@ class TourABooking extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(
+        private string $name, 
+        private string $email, 
+        private string $whatsapp, 
+        private string $start_date, 
+        private string $package,
+        private string $suggestions
+    )
     {
         //
     }
@@ -27,7 +34,7 @@ class TourABooking extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Tour A Booking',
+            subject: 'Tour Package Booking',
         );
     }
 
@@ -37,7 +44,15 @@ class TourABooking extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mails.packagetour',
+            with: [
+                'name' => $this->name,
+                'email' => $this->email,
+                'whatsapp' => $this->whatsapp,
+                'start_date' => $this->start_date,
+                'package' => $this->package,
+                'suggestions' => $this->suggestions,
+            ]
         );
     }
 

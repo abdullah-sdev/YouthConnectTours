@@ -94,8 +94,8 @@ nav ul li a:hover {
 /* Header */
 header {
     /* background-color: rgba(0, 0, 0, 0.5); */
-    /* background-image: url("https://travelandtours.pk/wp-content/uploads/2019/01/neelum-valley.jpg"); */
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://travelandtours.pk/wp-content/uploads/2019/01/neelum-valley.jpg"); */
+    /* background-image: url("{{ asset('asset/images/camels.jpg') }}"); */
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{{ asset('asset/images/camels.jpg') }}"); */
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -442,7 +442,7 @@ a.btn:hover {
     margin-top: 2rem;
     color: #fff;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("https://travelandtours.pk/wp-content/uploads/2020/05/iStock-537458148.jpg?id=1671");
+        url("{{ asset('asset/images/camels.jpg') }}");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

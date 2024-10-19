@@ -1,6 +1,6 @@
 <x-layout>
     {{-- <header
-    style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.743)),url('https://travelandtours.pk/wp-content/uploads/2019/01/neelum-valley.jpg');">
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.743)),url('{{ asset('asset/images/camels.jpg') }}');">
     <div class="text">
         <h2>Where do you want to go?</h2>
         <p>A perfect experience with Youth Connect Tours</p>
