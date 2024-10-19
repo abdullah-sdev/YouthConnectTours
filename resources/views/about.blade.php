@@ -7,8 +7,8 @@
     </div>
 </header> --}}
     <x-container></x-container>
-    <x-container class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white p-6 md:p-12 rounded-2xl shadow-lg">
+    <x-container class="grid grid-cols-2 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 md:p-12 rounded-2xl shadow-lg col-span-2 lg:col-span-1">
             <h2 class="text-3xl font-bold mb-4">About Us</h2>
             <p class="text-lg leading-relaxed mb-8 prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
                 <span class="mb-5 italic">Youth Connect Tours - Destination Management Company</span>
@@ -16,7 +16,7 @@
 
             </p>
         </div>
-        <div class="bg-white p-6 md:p-12 rounded-2xl shadow-lg">
+        <div class="bg-white p-6 md:p-12 rounded-2xl shadow-lg col-span-2 lg:col-span-1">
             <h2 class="text-3xl font-bold mb-4">Our Vision</h2>
             <p class="text-lg leading-relaxed mt-8 mb-2 font-bold">Our Mission</p>
             <p class="text-justify leading-relaxed">"Perform and deliver excellent quality service to our clients. Work with our clients based on a relationship of trust, honesty and transparency, giving personalized attention and service paying attention to detail to design tailor-made trips full of unique experiences with the best value for money."</p>

@@ -8,6 +8,7 @@ use App\Models\Gallery;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AttractionController extends Controller
 {
@@ -38,11 +39,8 @@ class AttractionController extends Controller
     public function store(Request $request)
     {
         //
-        echo '<pre>';
-        // print_r($request->all());
-        // echo '</pre>';
-        // die();
-
+        if(Auth::check()){
+            
         $validated = $request->validate([
             'name' => 'required|string',
             'display_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -84,6 +82,14 @@ class AttractionController extends Controller
         }
 
         return redirect()->route('destination.attraction.show', ['destination' => $attraction->destination->id, 'attraction' => $attraction->id]);
+        }else{
+            return redirect()->route('login');
+        }
+        // echo '<pre>';
+        // print_r($request->all());
+        // echo '</pre>';
+        // die();
+
     }
 
 
@@ -99,12 +105,18 @@ class AttractionController extends Controller
         // echo '</pre>';
 
         // die();
-        $attraction = Attraction::with('tags', 'galleries')->findOrFail($attraction);
-        // echo '<pre>';
-        // print_r($attraction);
-        // die();
-        $data = compact('attraction');
-        return view('attractions.show')->with($data);
+
+        if(Auth::check()){
+            $attraction = Attraction::with('tags', 'galleries')->findOrFail($attraction);
+            // echo '<pre>';
+            // print_r($attraction);
+            // die();
+            $data = compact('attraction');
+            return view('attractions.show')->with($data);
+        }else{
+            return redirect()->route('login');
+        }
+      
     }
 
     /**
@@ -114,16 +126,21 @@ class AttractionController extends Controller
     {
         //  
 
-        $attraction = Attraction::with('tags', 'galleries')->findOrFail($attraction->id);
-        $destination = Destination::findOrFail($destination->id);
-        // $attraction = Attraction::with('tags', 'galleries')->findOrFail($attraction->id)->toArray();
-        // $destination = Destination::findOrFail($destination->id)->toArray();
-        // echo '<pre>';
-        // print_r($attraction);
-        // print_r($destination);
-        // die();
-        $data = compact('attraction', 'destination');
-        return view('attractions.edit')->with($data);
+        if(Auth::check()){
+            $attraction = Attraction::with('tags', 'galleries')->findOrFail($attraction->id);
+            $destination = Destination::findOrFail($destination->id);
+            // $attraction = Attraction::with('tags', 'galleries')->findOrFail($attraction->id)->toArray();
+            // $destination = Destination::findOrFail($destination->id)->toArray();
+            // echo '<pre>';
+            // print_r($attraction);
+            // print_r($destination);
+            // die();
+            $data = compact('attraction', 'destination');
+            return view('attractions.edit')->with($data);
+        }else{
+            return redirect()->route('login');
+        }
+   
 
     }
 
@@ -133,8 +150,6 @@ class AttractionController extends Controller
     public function update(Request $request, $destination, $attraction)
     {
         //
-   
-
         $destination = Destination::findOrFail($destination)->toArray();
 
         $attraction = Attraction::where('destination_id', $destination['id'])->findOrFail($attraction)->toArray();
@@ -164,14 +179,6 @@ class AttractionController extends Controller
             $attraction->tags()->syncWithoutDetaching(Tag::firstOrCreate(['name' => $tag])->id);
         }
 
-        // foreach ($validated['gallery'] as $image) {
-        //     $path_gallery = $image->store('gallery', ['disk' => 'public']);
-        //     Gallery::create([
-        //         'name' => $attraction->name,
-        //         'attraction_id' => $attraction->id,
-        //         'image' => $path_gallery,
-        //     ]);
-        // }
 
         $attraction->update([
             'name' => $validated['name'],

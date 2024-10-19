@@ -49,8 +49,9 @@
                             <br>
                             {{-- <a href="{{ route('tour.detail', $attraction->slug()) }}"
                                 class="inline-block mt-0.5 text-xs py-1 px-2.5 border-none rounded bg-[#fe7200] text-white cursor-pointer transition duration-300 hover:bg-[#454545] no-underline">View</a> --}}
-                            <a href="{{  route('tour.make')  }}"
-                                class="inline-block mt-0.5 text-sm py-2 px-4 rounded-md bg-[#fe7200] text-white font-semibold cursor-pointer transition duration-300 hover:bg-[#454545] shadow-sm hover:shadow-md no-underline">Book Now</a>
+                            <a href="{{ route('tour.make') }}"
+                                class="inline-block mt-0.5 text-sm py-2 px-4 rounded-md bg-[#fe7200] text-white font-semibold cursor-pointer transition duration-300 hover:bg-[#454545] shadow-sm hover:shadow-md no-underline">Book
+                                Now</a>
                         </div>
                     </x-cards.card-1>
                 @empty
@@ -103,9 +104,9 @@
                         <h3 class="text-2xl font-bold">{{ $destination->name }}</h3>
                         <p class="">{{ $destination->ideal_time_to_visit }}</p>
                         <p class="text-sm">{{ $destination->ideal_time_period }} Days</p>
-                        <a
-                            href="{{ route('tour.make') }}"
-                            class="mt-3 btn px-4 py-2 text-sm font-semibold rounded-md bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545]">Book Now</a>
+                        <a href="{{ route('tour.make') }}"
+                            class="mt-3 btn px-4 py-2 text-sm font-semibold rounded-md bg-[#fe7200] text-white transition duration-300 hover:bg-[#454545]">Book
+                            Now</a>
                     </div>
                 </x-cards.card-3>
             @empty
@@ -122,8 +123,8 @@
         <div class="advertisement flex justify-center items-center md:flex-row flex-col">
             <div class="left md:w-1/2 p-4">
                 <div class="txt p-4 bg-gray-900 text-white text-2xl md:w-2/5">
-                    <h2 class="bold text-4xl font-bold border-b border-gray-300 pb-2">
-                        LAST MINUTE OFFERS
+                    <h2 class="bold text-4xl font-bold border-b border-gray-300 pb-2 uppercase">
+                        trip on a click
                     </h2>
                 </div>
             </div>
@@ -153,13 +154,13 @@
 
     <x-container>
         <div class="text-center">
-            <h2 class="bold text-2xl font-bold border-b border-gray-300 pb-2">Designed for you</h2>
+            <h2 class="bold text-2xl font-bold border-b border-gray-300 pb-2">Custom Plans</h2>
         </div>
 
 
         <div
             class="designedplans grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 p-6 rounded-xl shadow-md">
-            @foreach ([['title' => 'Weekend Getaways', 'link' => '#'], ['title' => 'Micro Adventures', 'link' => '#'], ['title' => 'Girls Weekend Club', 'link' => '#'], ['title' => 'Corporate Adventure Retreat', 'link' => '#']] as $plan)
+            @foreach ($custom as $plan)
                 <div class="designplan bg-no-repeat bg-cover w-full h-[200px] grid place-items-end rounded-lg overflow-hidden transition-transform transform hover:scale-105"
                     style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(http://travelandtours.pk/wp-content/uploads/2020/05/weekend.jpg?id=1634);">
                     <h3

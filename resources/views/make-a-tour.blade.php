@@ -17,6 +17,8 @@
         <form action="{{ route('tour.request') }}" method="POST" class="space-y-4">
             @csrf
             <h2 class="text-2xl font-bold border-b border-gray-300 pb-2">Make a Tour</h2>
+            <p class="text-orange-500 italic">You just have to fill out the form & we will get back to you soon.</p>
+
             <input type="hidden" name="currentStep" value="{{ $currentStep }}">
 
             <!-- Step 1: Your Information -->

@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel and Tours</title>
+    <title>Youth Connect Tours</title>
     {{-- <script src="https://cdn.tailwindcss.com"></script>  --}}
     @vite('resources/css/app.css')
     {{-- <link rel="stylesheet" href="{{ asset('asset/style2.css') }}"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="icon" type="image/png" href="{{ asset('asset/images/logo.png') }}" />
     {{-- <script src="https://kit.fontawesome.com/49a563159c.js" crossorigin="anonymous"></script> --}}
 
     @isset($styles)
@@ -95,7 +96,7 @@
             </div>
             <div class="flex flex-row justify-between sm:items-center">
                 <div class="py-2">
-                    &copy; 2024 Youth Tour Connect
+                    &copy; 2024 Youth Tour Connect All rights reserved.
                 </div>
                 <div class="py-2">
                     <a href="{{ @route('terms') }}" class="hover:underline">FAQ & Refund Policy</a>
@@ -104,6 +105,7 @@
         </footer>
     </main>
   
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </body>
 
 </html>

@@ -11,6 +11,8 @@
                 <h2 class="bold text-2xl font-bold border-b border-gray-300 pb-2">Book a Tour</h2>
 
                 <p class="text-orange-500 italic">Includes trip to Abu Dhabi, Dubai, Sharja, Al-Ain.</p>
+                <p class="text-orange-500 italic">You just have to fill out the form & we will get back to you soon.</p>
+
 
                 <div class="mb-3">
                     <label for="name" class="form-label block text-sm font-bold mb-2">Name:</label>

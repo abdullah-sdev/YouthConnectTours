@@ -5,7 +5,7 @@
 <div class="container-fluid">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title fw-semibold mb-4">Sample Page</h5>
+      <h5 class="card-title fw-semibold mb-4">Hi, {{ auth()->user()->name }}</h5>
       <p class="mb-0">This is a sample page </p>
       <a href="{{ route('dashboard.index') }}" class="btn btn-primary m-1">Admin</a>
       <a href="{{ route('dashboard.destination.index') }}" class="btn btn-primary m-1">Destinations</a>

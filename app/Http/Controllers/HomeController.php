@@ -16,11 +16,26 @@ class HomeController extends Controller
     {
         //
         $attractions = Attraction::with('destination', 'galleries', 'tags')->take(3)->get();
-        $destinations = Destination::get();
+        $destinations = Destination::take(4)->get();
+        $custom = [
+            ['title' => 'Weekend Getaways', 'link' => '#'], 
+            ['title' => 'Micro Adventures', 'link' => '#'], 
+            ['title' => 'Girls Weekend Club', 'link' => '#'], 
+            ['title' => 'Corporate Adventure Retreat', 'link' => '#']
+            // ['title' => 'Morning Desert Safari Tours', 'link' => '#'],
+            // ['title' => 'Evening Desert Safari', 'link' => '#'],
+            // ['title' => 'Private VIP luxury Desert Safari Tour', 'link' => '#'],
+            // ['title' => 'Dubai City Tour', 'link' => '#'],
+            // ['title' => 'Ajman & Sharjah City Tour', 'link' => '#'],
+            // ['title' => 'Buggy & Quad Bike Adventure Drive', 'link' => '#'],
+            // ['title' => 'Dhow Cruise Marina Tour', 'link' => '#'],
+            // ['title' => 'Jet Ski Adventure', 'link' => '#'],
+            // ['title' => 'Burj Khalifa Tour', 'link' => '#'],
+        ];
         // echo "<pre>";
         // print_r($attractions);
         // die();
-        return view('home', compact('attractions', 'destinations'));
+        return view('home', compact('attractions', 'destinations', 'custom'));
         // return view('home');
     }
     public function about()
@@ -70,7 +85,7 @@ class HomeController extends Controller
         // Fetch all states again if necessary 
         $states = Destination::all();
         $currentStep = $request->input('currentStep', 1);
-    
+
         // Validation based on current step 
         if ($currentStep == 1) {
             $validatedData = $request->validate([
@@ -109,9 +124,8 @@ class HomeController extends Controller
             ));
             return redirect()->route('home'); // Example route after submission
         }
-    
+
         // Return back to the form with old input and updated step 
         return back()->withInput()->with(compact('states', 'currentStep'));
     }
-    
 }
