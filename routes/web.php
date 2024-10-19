@@ -19,6 +19,7 @@ Route::get('attractions', [HomeController::class, 'vaccations'])->name('vaccatio
 Route::get('terms', [HomeController::class, 'terms'])->name('terms');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact'); 
 Route::get('book-a-tour', [HomeController::class, 'bookATour'])->name('book-a-tour');
+Route::post('book-a-tour', [HomeController::class, 'reqbookATour'])->name('book-a-tour.req');
 
 Route::get('make-a-tour', [HomeController::class, 'makeATour'])->name('tour.make');
 Route::post('make-a-tour', [HomeController::class, 'requestTour'])->name('tour.request');

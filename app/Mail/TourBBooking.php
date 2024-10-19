@@ -34,7 +34,7 @@ class TourBBooking extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Tour B Booking',
+            subject: 'Tour Custom Plan Booking',
         );
     }
 

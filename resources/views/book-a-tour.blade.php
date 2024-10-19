@@ -4,9 +4,18 @@
     </x-container>
     <x-container>
 
+@if ($errors->any())
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <ul class="list-disc pl-4">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
         <form action="" method="post">
             @csrf
-            <form action="" method="post" class="bg-white rounded-md shadow-md p-8 max-w-md">
+            <form action="{{ route('book-a-tour.req') }}" method="post" class="bg-white rounded-md shadow-md p-8 max-w-md">
                 @csrf
                 <h2 class="bold text-2xl font-bold border-b border-gray-300 pb-2">Book a Tour</h2>
 
@@ -48,11 +57,17 @@
                     <select name="package" id="package"
                         class="form-control block w-full px-4 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
                         required>
-                        <option value="1">3 nights 4 days</option>
-                        <option value="2">4 nights 5 days</option>
-                        <option value="3">5 nights 6 days</option>
-                        <option value="4">6 nights 7 days</option>
+                        <option value="3 nights 4 days">3 nights 4 days</option>
+                        <option value="4 nights 5 days">4 nights 5 days</option>
+                        <option value="5 nights 6 days">5 nights 6 days</option>
+                        <option value="6 nights 7 days">6 nights 7 days</option>
                     </select>
+                </div>
+                <div class="mb-3">
+                    <label for="suggestions" class="form-label block text-sm font-bold mb-2">Any suggestions or preferences?</label>
+                    <textarea id="suggestions" name="suggestions"
+                        class="form-control block w-full px-4 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                        rows="4"></textarea>
                 </div>
                 <div class="flex justify-end items-center p-4">
                     <button type="reset"

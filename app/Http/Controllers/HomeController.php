@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TourABooking;
 use App\Mail\TourBBooking;
 use App\Models\Attraction;
 use App\Models\Destination;
@@ -18,9 +19,9 @@ class HomeController extends Controller
         $attractions = Attraction::with('destination', 'galleries', 'tags')->take(3)->get();
         $destinations = Destination::take(4)->get();
         $custom = [
-            ['title' => 'Weekend Getaways', 'link' => '#'], 
-            ['title' => 'Micro Adventures', 'link' => '#'], 
-            ['title' => 'Girls Weekend Club', 'link' => '#'], 
+            ['title' => 'Weekend Getaways', 'link' => '#'],
+            ['title' => 'Micro Adventures', 'link' => '#'],
+            ['title' => 'Girls Weekend Club', 'link' => '#'],
             ['title' => 'Corporate Adventure Retreat', 'link' => '#']
             // ['title' => 'Morning Desert Safari Tours', 'link' => '#'],
             // ['title' => 'Evening Desert Safari', 'link' => '#'],
@@ -35,6 +36,15 @@ class HomeController extends Controller
         // echo "<pre>";
         // print_r($attractions);
         // die();
+
+        // // Set a success notification
+        // session()->flash('notification', 'Your action was successful!');
+        // session()->flash('notification_type', 'success');
+
+        // // Set an error notification
+        // session()->flash('notification', 'There was an error processing your request.');
+        // session()->flash('notification_type', 'error');
+
         return view('home', compact('attractions', 'destinations', 'custom'));
         // return view('home');
     }
@@ -65,6 +75,27 @@ class HomeController extends Controller
     public function bookATour()
     {
         return view('book-a-tour');
+    }
+    public function reqbookATour(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'whatsapp' => 'required',
+            'start' => 'required',
+            'package' => 'required',
+            'suggestions' => 'required'
+        ]);
+        Mail::to('info@youthconnecttours.com')->send(new TourABooking(
+            $validated['name'],
+            $validated['email'],
+            $validated['whatsapp'],
+            $validated['start'],
+            $validated['package'],
+            $validated['suggestions']
+        ));
+        
+        return redirect()->route('home')->with('success', 'We have received your booking request. We will contact you shortly.');
     }
     public function makeATour(Request $request)
     {
