@@ -24,8 +24,8 @@
                             {{-- <img class="w-[200px] h-[200px] bg-cover bg-no-repeat bg-center object-cover rounded-[16px]"
                                 src="{{ $attraction->display_picture }}" alt="xx"> --}}
                             <img class="w-[200px] h-[200px] bg-cover bg-no-repeat bg-center object-cover rounded-[16px]"
-                                src="{{ env('APP_ASSET') . 'uploads/' . $attraction->display_picture }}" alt="xx">
-                            {{-- <p>{{ env('APP_ASSET').$attraction->display_picture }}</p> --}}
+                                src="{{ 'uploads/' . $attraction->display_picture }}" alt="xx">
+                            {{-- <p>{{ $attraction->display_picture }}</p> --}}
                         </div>
                         <div class="flex flex-col justify-center p-2">
                             <h4 class="text-xl font-bold">{{ $attraction->name }}</h4>
