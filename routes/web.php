@@ -13,16 +13,16 @@ use App\Models\Attraction;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('about', [HomeController::class, 'about'])->name('about');
-Route::get('destinations', [HomeController::class, 'destination'])->name('destinys');
-Route::get('attractions', [HomeController::class, 'vaccations'])->name('vaccations');
-Route::get('terms', [HomeController::class, 'terms'])->name('terms');
-Route::get('contact', [HomeController::class, 'contact'])->name('contact'); 
-Route::get('book-a-tour', [HomeController::class, 'bookATour'])->name('book-a-tour');
-Route::post('book-a-tour', [HomeController::class, 'reqbookATour'])->name('book-a-tour.req');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/destinations', [HomeController::class, 'destination'])->name('destinys');
+Route::get('/attractions', [HomeController::class, 'vaccations'])->name('vaccations');
+Route::get('/terms', [HomeController::class, 'terms'])->name('terms');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact'); 
+Route::get('/book-a-tour', [HomeController::class, 'bookATour'])->name('book-a-tour');
+Route::post('/book-a-tour', [HomeController::class, 'reqbookATour'])->name('book-a-tour.req');
 
-Route::get('make-a-tour', [HomeController::class, 'makeATour'])->name('tour.make');
-Route::post('make-a-tour', [HomeController::class, 'requestTour'])->name('tour.request');
+Route::get('/make-a-tour', [HomeController::class, 'makeATour'])->name('tour.make');
+Route::post('/make-a-tour', [HomeController::class, 'requestTour'])->name('tour.request');
 // Route::get('/travel/step1', [HomeController::class, 'step1'])->name('makeatour.step1');
 // Route::post('/travel/step2', [HomeController::class, 'step2'])->name('makeatour.step2');
 // Route::get('/travel/step2', [HomeController::class, 'step2Form'])->name('makeatour.step2.form');
