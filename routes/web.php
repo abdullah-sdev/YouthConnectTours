@@ -63,8 +63,8 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
     Route::resource('tags', TagController::class);
 
 
-    Route::get('destination/{destination}/attraction/{attraction}/edit', [AttractionController::class, 'edit'])->name('destination.attraction.edit');
-    Route::put('destination/{destination}/attraction/{attraction}', [AttractionController::class, 'update'])->name('destination.attraction.update');
-    Route::get('destination/{destination}/attraction/{attraction}', [AttractionController::class, 'show'])->name('destination.attraction.show');
+    // Route::get('destination/{destination}/attraction/{attraction}/edit', [AttractionController::class, 'edit'])->name('destination.attraction.edit');
+    // Route::put('destination/{destination}/attraction/{attraction}', [AttractionController::class, 'update'])->name('destination.attraction.update');
+    // Route::get('destination/{destination}/attraction/{attraction}', [AttractionController::class, 'show'])->name('destination.attraction.show');
     
 });
